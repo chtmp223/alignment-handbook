@@ -100,13 +100,15 @@ def main():
     # Load tokenizer
     ################
     tokenizer = get_tokenizer(model_args, data_args)
+    tokenizer.padding_token = tokenizer.unk_token
+    tokenizer.padding_side = "right"
 
     #######################
     # Load pretrained model
     #######################
     logger.info("*** Load pretrained model ***")
     torch_dtype = (
-        model_args.torch_dtype if model_args.torch_dtype in ["auto", None] else getattr(torch, model_args.torch_dtype)
+        model_args.torch_dtype if model_args.torch_dtype in ["auto", None] else getattr(torch, str(model_args.torch_dtype))
     )
     quantization_config = get_quantization_config(model_args)
 
@@ -145,6 +147,7 @@ def main():
     ##########################
     # Decontaminate benchmarks
     ##########################
+    '''
     num_raw_train_samples = len(raw_datasets["train"])
     raw_datasets = raw_datasets.filter(decontaminate_humaneval, batched=True, batch_size=10_000, num_proc=1)
     num_filtered_train_samples = num_raw_train_samples - len(raw_datasets["train"])
@@ -152,13 +155,14 @@ def main():
         f"Decontaminated {num_filtered_train_samples} ({num_filtered_train_samples/num_raw_train_samples * 100:.2f}%) samples from the training set."
     )
 
+    '''
+
     train_dataset = raw_datasets["train"]
     eval_dataset = raw_datasets["test"]
 
     with training_args.main_process_first(desc="Log a few random samples from the processed training set"):
-        for index in random.sample(range(len(raw_datasets["train"])), 3):
+        for index in random.sample(range(len(raw_datasets["train"])), 1):
             logger.info(f"Sample {index} of the processed training set:\n\n{raw_datasets['train'][index]['text']}")
-
     ########################
     # Initialize the Trainer
     ########################
@@ -175,6 +179,7 @@ def main():
         peft_config=get_peft_config(model_args),
         dataset_kwargs=training_args.dataset_kwargs,
     )
+    logger.info(f"Trainer initialized with {len(train_dataset)} training samples and {len(eval_dataset)} evaluation samples.")
 
     ###############
     # Training loop

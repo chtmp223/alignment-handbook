@@ -1,5 +1,4 @@
-# Model arguments
-model_name_or_path: mistral-community/Mixtral-8x22B-v0.1
+model_name_or_path: mistralai/Mistral-7B-Instruct-v0.2
 model_revision: main
 torch_dtype: bfloat16
 use_flash_attention_2: false
@@ -7,33 +6,40 @@ use_flash_attention_2: false
 # Data training arguments
 chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ '<|system|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>\n'  + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}"
 dataset_mixer:
-  argilla/distilabel-capybara-dpo-7k-binarized: 1.0
+  chtmp223/suri: 1.0
 dataset_splits:
 - train
-preprocessing_num_workers: 8
+preprocessing_num_workers: 48
 
-# ORPOTrainer arguments
+# SFT trainer config
 bf16: true
-beta: 0.05
 gradient_accumulation_steps: 1
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
-  use_reentrant: true
-hub_model_id: zephyr-orpo-141b-A35b
-learning_rate: 5.0e-6
+  use_reentrant: False
+hub_model_id: suri-sft-v0.2-mixed
+hub_strategy: all_checkpoints
+hub_always_push: true
+hub_private_repo: true
+learning_rate: 5.0e-07
 log_level: info
-logging_steps: 10
-lr_scheduler_type: inverse_sqrt
-max_length: 2048
-max_prompt_length: 1792
+logging_steps: 10 
+logging_strategy: steps
+lr_scheduler_type: cosine
+max_seq_length: 15024
+max_steps: -1
 num_train_epochs: 3
-optim: adamw_bnb_8bit
-output_dir: data/zephyr-orpo-141b-A35b
-per_device_train_batch_size: 1
+output_dir: /scratch/workspace/ctpham_umass_edu-ft/sft-v0.2-mixed
+overwrite_output_dir: true
+per_device_train_batch_size: 2
 push_to_hub: true
+hub_private_repo: true
+remove_unused_columns: true
 report_to:
-- tensorboard
 - wandb
-save_strategy: "no"
+save_strategy: "epoch"
+save_steps: 3
+save_total_limit: 3
 seed: 42
-warmup_steps: 100
+warmup_ratio: 0.1
+run_name: sft-v0.2-mixed

@@ -1,5 +1,5 @@
 # Model arguments
-model_name_or_path: mistralai/Mistral-7B-v0.1
+model_name_or_path: mistralai/Mistral-7B-Instruct-v0.2
 model_revision: main
 torch_dtype: bfloat16
 use_flash_attention_2: true
@@ -7,40 +7,39 @@ use_flash_attention_2: true
 # Data training arguments
 chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ '<|system|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>\n'  + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}"
 dataset_mixer:
-  HuggingFaceH4/ultrachat_200k: 1.0
+  chtmp223/suri: 1.0      # whole
 dataset_splits:
-- train_sft
-- test_sft
-preprocessing_num_workers: 12
+- train
+preprocessing_num_workers: 48
 
-# SFT trainer config
+# ORPOTrainer arguments
 bf16: true
-do_eval: true
-evaluation_strategy: epoch
+beta: 0.1                   #beta: 0.05 -- default
 gradient_accumulation_steps: 1
 gradient_checkpointing: true
 gradient_checkpointing_kwargs:
-  use_reentrant: False
-hub_model_id: zephyr-7b-sft-full
-hub_strategy: every_save
-learning_rate: 2.0e-05
+  use_reentrant: true
+hub_model_id: suri-orpo-testing-single_cons
+hub_strategy: all_checkpoints
+hub_always_push: true
+hub_private_repo: true
+learning_rate: 5.0e-7       #TODO: change this
 log_level: info
-logging_steps: 5  
-logging_strategy: steps
+logging_steps: 10
 lr_scheduler_type: cosine
-max_seq_length: 2048
-max_steps: -1
-num_train_epochs: 1
-output_dir: data/zephyr-7b-sft-full
-overwrite_output_dir: true
-per_device_eval_batch_size: 8
-per_device_train_batch_size: 16
+max_length: 15024
+max_completion_length: 15000
+max_prompt_length: 5000
+num_train_epochs: 3
+optim: adamw_torch
+output_dir: /scratch/workspace/ctpham_umass_edu-ft/orpo_full_single_cons
+per_device_train_batch_size: 1
 push_to_hub: true
-remove_unused_columns: true
 report_to:
-- tensorboard
-save_strategy: "steps"
-save_steps: 100
-save_total_limit: 1
+- wandb
+save_strategy: "epoch"
+save_steps: 3
+save_total_limit: 3
 seed: 42
-warmup_ratio: 0.1
+#warmup_steps: 100
+run_name: orpo-full-single-cons
