@@ -1,0 +1,47 @@
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+model_revision: main
+torch_dtype: bfloat16
+use_flash_attention_2: false
+
+# Data training arguments
+chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|start_header_id|>user<|end_header_id|>\n\n' + message['content'] + '<|eot_id|>' }}\n{% elif message['role'] == 'system' %}\n{{ '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n' + message['content'] + '<|eot_id|>' }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|start_header_id|>assistant<|end_header_id|>\n\n'  + message['content'] + '<|eot_id|>' }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}\n{% endif %}\n{% endfor %}"
+dataset_mixer:
+  chtmp223/suri: 1.0
+dataset_splits:
+- train_sft
+- test
+preprocessing_num_workers: 48
+
+# SFT trainer config
+bf16: true
+do_eval: false
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: False
+hub_model_id: suri-sft-llama-5ep
+hub_strategy: all_checkpoints
+hub_always_push: true
+hub_private_repo: true
+learning_rate: 5.0e-06
+log_level: info
+logging_steps: 10 
+logging_strategy: steps
+lr_scheduler_type: cosine
+max_seq_length: 15024
+max_steps: -1
+num_train_epochs: 1
+output_dir: /scratch/workspace/ctpham_umass_edu-ft/sft-llama
+overwrite_output_dir: true
+per_device_train_batch_size: 2
+push_to_hub: true
+hub_private_repo: true
+remove_unused_columns: true
+report_to:
+- wandb
+save_strategy: "epoch"
+save_steps: 5
+save_total_limit: 5
+seed: 42
+warmup_ratio: 0.1
+run_name: huggingface/sft-llama-5ep

@@ -1,0 +1,595 @@
+unloading cuda version 11.8.0
+loading cuda version 11.8.0
+/var/spool/slurm/slurmd/job23129766/slurm_script: line 19: test/bin/activate: No such file or directory
+unloading libmd version 1.0.3
+unloading libbsd version 0.11.3
+unloading expat version 2.4.1
+unloading gdbm version 1.19
+unloading bzip2 version 1.0.8
+unloading tar version 1.34
+unloading gettext version 0.21
+unloading libffi version 3.3
+unloading openssl version 1.1.1l
+unloading ncurses version 6.2
+unloading readline version 8.1
+unloading sqlite version 3.36.0
+unloading util-linux-uuid version 2.36.2
+unloading python version 3.11.0
+loading bzip2 version 1.0.8
+loading libmd version 1.0.3
+loading libbsd version 0.11.3
+loading expat version 2.4.1
+loading ncurses version 6.2
+loading readline version 8.1
+loading gdbm version 1.19
+loading tar version 1.34
+loading gettext version 0.21
+loading libffi version 3.3
+loading openssl version 1.1.1l
+loading sqlite version 3.36.0
+loading util-linux-uuid version 2.36.2
+loading python version 3.11.0
+[2024-06-03 01:55:01,797] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+INFO:root:Using nproc_per_node=8.
+[2024-06-03 01:55:04,047] torch.distributed.run: [WARNING] 
+[2024-06-03 01:55:04,047] torch.distributed.run: [WARNING] *****************************************
+[2024-06-03 01:55:04,047] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2024-06-03 01:55:04,047] torch.distributed.run: [WARNING] *****************************************
+[2024-06-03 01:55:11,673] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,749] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,763] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,846] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,868] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,888] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,889] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:11,894] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-06-03 01:55:12,087] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,290] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,350] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,524] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,561] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,702] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,702] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-06-03 01:55:12,714] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-06-03 01:55:12,765] [INFO] [comm.py:637:init_distributed] cdb=None
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 5, device: cuda:5, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='mistralai/Mistral-7B-Instruct-v0.2', model_revision='main', model_code_revision=None, torch_dtype='bfloat16', tokenizer_name_or_path=None, trust_remote_code=False, use_flash_attention_2=False, use_peft=False, lora_r=16, lora_alpha=32, lora_dropout=0.05, lora_target_modules=None, lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False, bnb_4bit_quant_storage='uint8')
+2024-06-03 01:55:13 - INFO - __main__ - Data parameters DataArguments(chat_template="{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ '<|system|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>\n'  + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}", dataset_mixer={'chtmp223/suri': 1.0}, text_column='text', dataset_splits=['train'], dataset_configs=None, preprocessing_num_workers=48, truncation_side=None, auto_insert_empty_system_msg=True)
+2024-06-03 01:55:13 - INFO - __main__ - Training/evaluation parameters SFTConfig(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+dataset_kwargs=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_steps=None,
+eval_strategy=IntervalStrategy.NO,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs={'use_reentrant': False},
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=True,
+hub_model_id=suri-sft-v0.2-mixed,
+hub_private_repo=True,
+hub_strategy=HubStrategy.ALL_CHECKPOINTS,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-07,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/scratch/workspace/ctpham_umass_edu-ft/sft-v0.2-mixed/runs/Jun03_01-55-12_gpu021,
+logging_first_step=True,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.COSINE,
+max_grad_norm=1.0,
+max_seq_length=15024,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+optim_target_modules=None,
+output_dir=/scratch/workspace/ctpham_umass_edu-ft/sft-v0.2-mixed,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+push_to_hub=True,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=sft-v0.2-mixed,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=3,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=3,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 6, device: cuda:6, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 7, device: cuda:7, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 4, device: cuda:4, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-06-03 01:55:13 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1 distributed training: True, 16-bits training: False
+https://huggingface.co/datasets/chtmp223/suri/resolve/84f79185faa823243ade7f464783f672f5c1965d/README.md not found in cache or force_download set to True, downloading to /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/downloads/59ea7235bb3713c19fa958a5d9b412456718fcb4ea95e77e827fd1ea683ba411.cf91756213fe9ebff23c1f28a6f03d8bf31be7e9684537a4dbb008fc35b38751.incomplete
+2024-06-03 01:55:13 - INFO - datasets.utils.file_utils - https://huggingface.co/datasets/chtmp223/suri/resolve/84f79185faa823243ade7f464783f672f5c1965d/README.md not found in cache or force_download set to True, downloading to /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/downloads/59ea7235bb3713c19fa958a5d9b412456718fcb4ea95e77e827fd1ea683ba411.cf91756213fe9ebff23c1f28a6f03d8bf31be7e9684537a4dbb008fc35b38751.incomplete
+Downloading readme:   0%|          | 0.00/2.00k [00:00<?, ?B/s]Downloading readme: 100%|██████████| 2.00k/2.00k [00:00<00:00, 13.9MB/s]
+storing https://huggingface.co/datasets/chtmp223/suri/resolve/84f79185faa823243ade7f464783f672f5c1965d/README.md in cache at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/downloads/59ea7235bb3713c19fa958a5d9b412456718fcb4ea95e77e827fd1ea683ba411.cf91756213fe9ebff23c1f28a6f03d8bf31be7e9684537a4dbb008fc35b38751
+2024-06-03 01:55:13 - INFO - datasets.utils.file_utils - storing https://huggingface.co/datasets/chtmp223/suri/resolve/84f79185faa823243ade7f464783f672f5c1965d/README.md in cache at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/downloads/59ea7235bb3713c19fa958a5d9b412456718fcb4ea95e77e827fd1ea683ba411.cf91756213fe9ebff23c1f28a6f03d8bf31be7e9684537a4dbb008fc35b38751
+creating metadata file for /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/downloads/59ea7235bb3713c19fa958a5d9b412456718fcb4ea95e77e827fd1ea683ba411.cf91756213fe9ebff23c1f28a6f03d8bf31be7e9684537a4dbb008fc35b38751
+2024-06-03 01:55:13 - INFO - datasets.utils.file_utils - creating metadata file for /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/downloads/59ea7235bb3713c19fa958a5d9b412456718fcb4ea95e77e827fd1ea683ba411.cf91756213fe9ebff23c1f28a6f03d8bf31be7e9684537a4dbb008fc35b38751
+Downloading data:   0%|          | 0.00/223M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/223M [00:00<00:07, 27.6MB/s]Downloading data:   9%|▉         | 21.0M/223M [00:00<00:04, 43.7MB/s]Downloading data:  19%|█▉        | 41.9M/223M [00:00<00:03, 49.3MB/s]Downloading data:  23%|██▎       | 52.4M/223M [00:01<00:03, 48.3MB/s]Downloading data:  28%|██▊       | 62.9M/223M [00:01<00:03, 44.6MB/s]Downloading data:  33%|███▎      | 73.4M/223M [00:01<00:03, 40.7MB/s]Downloading data:  38%|███▊      | 83.9M/223M [00:01<00:02, 48.6MB/s]Downloading data:  47%|████▋     | 105M/223M [00:02<00:01, 60.7MB/s] Downloading data:  52%|█████▏    | 115M/223M [00:02<00:01, 61.6MB/s]Downloading data:  61%|██████    | 136M/223M [00:02<00:01, 63.7MB/s]Downloading data:  66%|██████▌   | 147M/223M [00:02<00:01, 59.2MB/s]Downloading data:  75%|███████▌  | 168M/223M [00:03<00:00, 64.1MB/s]Downloading data:  80%|███████▉  | 178M/223M [00:03<00:00, 62.0MB/s]Downloading data:  89%|████████▉ | 199M/223M [00:03<00:00, 65.4MB/s]Downloading data:  94%|█████████▍| 210M/223M [00:03<00:00, 61.5MB/s]Downloading data: 100%|██████████| 223M/223M [00:03<00:00, 72.5MB/s]Downloading data: 100%|██████████| 223M/223M [00:03<00:00, 57.7MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:05, 35.5MB/s]Downloading data:   9%|▉         | 21.0M/222M [00:00<00:03, 50.9MB/s]Downloading data:  14%|█▍        | 31.5M/222M [00:00<00:03, 61.6MB/s]Downloading data:  19%|█▉        | 41.9M/222M [00:00<00:02, 61.7MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:01<00:03, 46.2MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:02, 58.8MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:02, 52.6MB/s]Downloading data:  47%|████▋     | 105M/222M [00:01<00:01, 63.7MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:02<00:02, 35.8MB/s]Downloading data:  61%|██████▏   | 136M/222M [00:02<00:01, 47.1MB/s]Downloading data:  66%|██████▌   | 147M/222M [00:03<00:01, 44.1MB/s]Downloading data:  76%|███████▌  | 168M/222M [00:03<00:00, 55.4MB/s]Downloading data:  80%|████████  | 178M/222M [00:03<00:00, 51.7MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:03<00:00, 60.5MB/s]Downloading data:  95%|█████████▍| 210M/222M [00:03<00:00, 62.9MB/s]Downloading data: 100%|██████████| 222M/222M [00:04<00:00, 64.4MB/s]Downloading data: 100%|██████████| 222M/222M [00:04<00:00, 54.0MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:07, 29.3MB/s]Downloading data:   9%|▉         | 21.0M/222M [00:00<00:03, 50.4MB/s]Downloading data:  14%|█▍        | 31.5M/222M [00:00<00:02, 63.8MB/s]Downloading data:  19%|█▉        | 41.9M/222M [00:00<00:03, 57.8MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:00<00:02, 64.2MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:03, 47.1MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:02, 50.0MB/s]Downloading data:  47%|████▋     | 105M/222M [00:01<00:01, 61.3MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:02<00:02, 44.6MB/s]Downloading data:  62%|██████▏   | 136M/222M [00:02<00:02, 40.6MB/s]Downloading data:  66%|██████▋   | 147M/222M [00:03<00:02, 35.6MB/s]Downloading data:  76%|███████▌  | 168M/222M [00:03<00:01, 51.0MB/s]Downloading data:  80%|████████  | 178M/222M [00:03<00:00, 51.6MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:04<00:00, 54.0MB/s]Downloading data:  95%|█████████▍| 210M/222M [00:04<00:00, 50.5MB/s]Downloading data: 100%|██████████| 222M/222M [00:04<00:00, 51.0MB/s]
+Downloading data:   0%|          | 0.00/224M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/224M [00:00<00:08, 24.2MB/s]Downloading data:   9%|▉         | 21.0M/224M [00:00<00:06, 29.4MB/s]Downloading data:  19%|█▉        | 41.9M/224M [00:00<00:03, 52.2MB/s]Downloading data:  23%|██▎       | 52.4M/224M [00:01<00:03, 51.4MB/s]Downloading data:  33%|███▎      | 73.4M/224M [00:01<00:02, 69.2MB/s]Downloading data:  38%|███▊      | 83.9M/224M [00:01<00:02, 60.5MB/s]Downloading data:  47%|████▋     | 105M/224M [00:01<00:01, 63.0MB/s] Downloading data:  52%|█████▏    | 115M/224M [00:02<00:01, 58.4MB/s]Downloading data:  56%|█████▋    | 126M/224M [00:02<00:01, 61.5MB/s]Downloading data:  61%|██████    | 136M/224M [00:02<00:01, 60.6MB/s]Downloading data:  66%|██████▌   | 147M/224M [00:02<00:01, 67.8MB/s]Downloading data:  75%|███████▌  | 168M/224M [00:02<00:00, 67.7MB/s]Downloading data:  80%|███████▉  | 178M/224M [00:03<00:00, 65.9MB/s]Downloading data:  89%|████████▉ | 199M/224M [00:03<00:00, 73.9MB/s]Downloading data:  94%|█████████▍| 210M/224M [00:03<00:00, 74.6MB/s]Downloading data: 100%|██████████| 224M/224M [00:03<00:00, 83.5MB/s]Downloading data: 100%|██████████| 224M/224M [00:03<00:00, 63.4MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:06, 30.5MB/s]Downloading data:   9%|▉         | 21.0M/222M [00:00<00:05, 37.8MB/s]Downloading data:  14%|█▍        | 31.5M/222M [00:00<00:03, 51.8MB/s]Downloading data:  19%|█▉        | 41.9M/222M [00:00<00:03, 59.1MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:01<00:04, 39.0MB/s]Downloading data:  28%|██▊       | 62.9M/222M [00:01<00:03, 44.8MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:03, 46.6MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:03, 43.2MB/s]Downloading data:  42%|████▏     | 94.4M/222M [00:02<00:02, 47.1MB/s]Downloading data:  47%|████▋     | 105M/222M [00:02<00:02, 54.1MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:02<00:02, 50.3MB/s]Downloading data:  57%|█████▋    | 126M/222M [00:02<00:01, 57.8MB/s]Downloading data:  61%|██████▏   | 136M/222M [00:02<00:01, 66.2MB/s]Downloading data:  66%|██████▌   | 147M/222M [00:02<00:01, 57.9MB/s]Downloading data:  75%|███████▌  | 168M/222M [00:03<00:01, 47.6MB/s]Downloading data:  80%|████████  | 178M/222M [00:03<00:01, 39.4MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:04<00:00, 51.7MB/s]Downloading data:  94%|█████████▍| 210M/222M [00:04<00:00, 48.5MB/s]Downloading data: 100%|██████████| 222M/222M [00:04<00:00, 57.1MB/s]Downloading data: 100%|██████████| 222M/222M [00:04<00:00, 49.8MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:08, 23.6MB/s]Downloading data:  14%|█▍        | 31.5M/222M [00:00<00:02, 66.5MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:00<00:02, 57.2MB/s]Downloading data:  28%|██▊       | 62.9M/222M [00:01<00:02, 62.4MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:02, 57.3MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:02, 63.4MB/s]Downloading data:  47%|████▋     | 105M/222M [00:01<00:01, 68.4MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:02<00:01, 56.9MB/s]Downloading data:  61%|██████▏   | 136M/222M [00:02<00:01, 71.7MB/s]Downloading data:  66%|██████▌   | 147M/222M [00:02<00:01, 71.9MB/s]Downloading data:  75%|███████▌  | 168M/222M [00:02<00:00, 77.9MB/s]Downloading data:  80%|████████  | 178M/222M [00:03<00:01, 44.1MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:03<00:00, 52.5MB/s]Downloading data:  94%|█████████▍| 210M/222M [00:03<00:00, 50.6MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 57.5MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 58.2MB/s]
+Downloading data:   0%|          | 0.00/221M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/221M [00:00<00:07, 28.0MB/s]Downloading data:   9%|▉         | 21.0M/221M [00:00<00:05, 34.0MB/s]Downloading data:  19%|█▉        | 41.9M/221M [00:00<00:03, 55.5MB/s]Downloading data:  24%|██▎       | 52.4M/221M [00:01<00:03, 51.6MB/s]Downloading data:  33%|███▎      | 73.4M/221M [00:01<00:03, 45.6MB/s]Downloading data:  38%|███▊      | 83.9M/221M [00:01<00:02, 46.0MB/s]Downloading data:  43%|████▎     | 94.4M/221M [00:01<00:02, 53.9MB/s]Downloading data:  47%|████▋     | 105M/221M [00:02<00:02, 57.7MB/s] Downloading data:  52%|█████▏    | 115M/221M [00:02<00:01, 55.2MB/s]Downloading data:  62%|██████▏   | 136M/221M [00:02<00:01, 69.4MB/s]Downloading data:  66%|██████▋   | 147M/221M [00:02<00:01, 67.5MB/s]Downloading data:  76%|███████▌  | 168M/221M [00:02<00:00, 70.3MB/s]Downloading data:  81%|████████  | 178M/221M [00:03<00:00, 64.9MB/s]Downloading data:  90%|█████████ | 199M/221M [00:03<00:00, 63.5MB/s]Downloading data:  95%|█████████▍| 210M/221M [00:03<00:00, 60.1MB/s]Downloading data:  99%|█████████▉| 220M/221M [00:03<00:00, 56.0MB/s]Downloading data: 100%|██████████| 221M/221M [00:03<00:00, 56.0MB/s]
+Downloading data:   0%|          | 0.00/224M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/224M [00:00<00:06, 31.3MB/s]Downloading data:   9%|▉         | 21.0M/224M [00:00<00:05, 34.1MB/s]Downloading data:  14%|█▍        | 31.5M/224M [00:00<00:03, 48.9MB/s]Downloading data:  19%|█▊        | 41.9M/224M [00:00<00:03, 57.6MB/s]Downloading data:  28%|██▊       | 62.9M/224M [00:00<00:01, 88.6MB/s]Downloading data:  37%|███▋      | 83.9M/224M [00:01<00:03, 41.9MB/s]Downloading data:  47%|████▋     | 105M/224M [00:02<00:02, 53.8MB/s] Downloading data:  51%|█████▏    | 115M/224M [00:02<00:01, 55.8MB/s]Downloading data:  61%|██████    | 136M/224M [00:02<00:01, 61.5MB/s]Downloading data:  66%|██████▌   | 147M/224M [00:02<00:01, 46.8MB/s]Downloading data:  75%|███████▍  | 168M/224M [00:03<00:01, 49.6MB/s]Downloading data:  80%|███████▉  | 178M/224M [00:03<00:00, 47.4MB/s]Downloading data:  89%|████████▉ | 199M/224M [00:03<00:00, 52.8MB/s]Downloading data:  94%|█████████▎| 210M/224M [00:04<00:00, 45.7MB/s]Downloading data: 100%|██████████| 224M/224M [00:04<00:00, 52.4MB/s]Downloading data: 100%|██████████| 224M/224M [00:04<00:00, 51.0MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:07, 30.2MB/s]Downloading data:   9%|▉         | 21.0M/222M [00:00<00:06, 33.2MB/s]Downloading data:  19%|█▉        | 41.9M/222M [00:00<00:03, 57.3MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:00<00:02, 61.5MB/s]Downloading data:  28%|██▊       | 62.9M/222M [00:01<00:02, 62.0MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:02, 64.5MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:02, 61.0MB/s]Downloading data:  43%|████▎     | 94.4M/222M [00:01<00:02, 57.2MB/s]Downloading data:  47%|████▋     | 105M/222M [00:01<00:01, 60.1MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:01<00:01, 66.3MB/s]Downloading data:  61%|██████▏   | 136M/222M [00:02<00:01, 76.3MB/s]Downloading data:  66%|██████▌   | 147M/222M [00:02<00:01, 57.7MB/s]Downloading data:  71%|███████   | 157M/222M [00:02<00:01, 57.1MB/s]Downloading data:  76%|███████▌  | 168M/222M [00:02<00:00, 60.2MB/s]Downloading data:  80%|████████  | 178M/222M [00:03<00:00, 45.9MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:03<00:00, 60.4MB/s]Downloading data:  94%|█████████▍| 210M/222M [00:03<00:00, 60.1MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 66.3MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 59.1MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:05, 37.4MB/s]Downloading data:   9%|▉         | 21.0M/222M [00:00<00:05, 38.6MB/s]Downloading data:  19%|█▉        | 41.9M/222M [00:00<00:02, 64.9MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:00<00:03, 55.4MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:02, 71.6MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:02, 61.8MB/s]Downloading data:  47%|████▋     | 105M/222M [00:01<00:01, 72.0MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:01<00:01, 61.5MB/s]Downloading data:  61%|██████▏   | 136M/222M [00:02<00:01, 65.1MB/s]Downloading data:  66%|██████▌   | 147M/222M [00:02<00:01, 58.8MB/s]Downloading data:  75%|███████▌  | 168M/222M [00:02<00:00, 66.3MB/s]Downloading data:  80%|████████  | 178M/222M [00:02<00:00, 60.4MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:03<00:00, 73.5MB/s]Downloading data:  94%|█████████▍| 210M/222M [00:03<00:00, 59.4MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 64.2MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 62.5MB/s]
+Downloading data:   0%|          | 0.00/222M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/222M [00:00<00:05, 37.7MB/s]Downloading data:   9%|▉         | 21.0M/222M [00:00<00:04, 44.6MB/s]Downloading data:  19%|█▉        | 41.9M/222M [00:00<00:02, 70.8MB/s]Downloading data:  24%|██▎       | 52.4M/222M [00:00<00:03, 54.5MB/s]Downloading data:  28%|██▊       | 62.9M/222M [00:01<00:02, 53.2MB/s]Downloading data:  33%|███▎      | 73.4M/222M [00:01<00:03, 48.7MB/s]Downloading data:  38%|███▊      | 83.9M/222M [00:01<00:02, 55.8MB/s]Downloading data:  47%|████▋     | 105M/222M [00:01<00:01, 73.6MB/s] Downloading data:  52%|█████▏    | 115M/222M [00:02<00:01, 58.6MB/s]Downloading data:  57%|█████▋    | 126M/222M [00:02<00:01, 58.1MB/s]Downloading data:  61%|██████▏   | 136M/222M [00:02<00:01, 58.8MB/s]Downloading data:  66%|██████▌   | 147M/222M [00:02<00:01, 46.8MB/s]Downloading data:  76%|███████▌  | 168M/222M [00:03<00:00, 55.7MB/s]Downloading data:  80%|████████  | 178M/222M [00:03<00:00, 53.0MB/s]Downloading data:  90%|████████▉ | 199M/222M [00:03<00:00, 67.2MB/s]Downloading data:  95%|█████████▍| 210M/222M [00:03<00:00, 61.7MB/s]Downloading data: 100%|██████████| 222M/222M [00:03<00:00, 59.9MB/s]
+Downloading data:   0%|          | 0.00/224M [00:00<?, ?B/s]Downloading data:   5%|▍         | 10.5M/224M [00:00<00:06, 31.3MB/s]Downloading data:   9%|▉         | 21.0M/224M [00:00<00:05, 39.4MB/s]Downloading data:  19%|█▊        | 41.9M/224M [00:01<00:04, 42.3MB/s]Downloading data:  23%|██▎       | 52.4M/224M [00:01<00:03, 46.6MB/s]Downloading data:  33%|███▎      | 73.4M/224M [00:01<00:02, 57.9MB/s]Downloading data:  37%|███▋      | 83.9M/224M [00:01<00:03, 44.7MB/s]Downloading data:  47%|████▋     | 105M/224M [00:02<00:02, 49.0MB/s] Downloading data:  52%|█████▏    | 115M/224M [00:02<00:02, 48.2MB/s]Downloading data:  61%|██████    | 136M/224M [00:02<00:01, 55.0MB/s]Downloading data:  66%|██████▌   | 147M/224M [00:03<00:01, 47.4MB/s]Downloading data:  75%|███████▍  | 168M/224M [00:03<00:01, 53.9MB/s]Downloading data:  80%|███████▉  | 178M/224M [00:03<00:00, 52.2MB/s]Downloading data:  89%|████████▉ | 199M/224M [00:03<00:00, 58.6MB/s]Downloading data:  94%|█████████▎| 210M/224M [00:04<00:00, 59.3MB/s]Downloading data: 100%|██████████| 224M/224M [00:04<00:00, 70.5MB/s]Downloading data: 100%|██████████| 224M/224M [00:04<00:00, 53.5MB/s]
+Generating train split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating train split:  10%|█         | 1000/10000 [00:00<00:05, 1717.42 examples/s]Generating train split:  20%|██        | 2000/10000 [00:01<00:04, 1876.18 examples/s]Generating train split:  25%|██▌       | 2500/10000 [00:01<00:03, 1974.25 examples/s]Generating train split:  35%|███▌      | 3500/10000 [00:01<00:03, 2140.69 examples/s]Generating train split:  35%|███▌      | 3500/10000 [00:21<00:03, 2140.69 examples/s]Generating train split:  45%|████▌     | 4500/10000 [00:43<01:31, 60.09 examples/s]  Generating train split:  50%|█████     | 5000/10000 [00:43<01:05, 76.43 examples/s]Generating train split:  60%|██████    | 6000/10000 [00:43<00:32, 121.73 examples/s]Generating train split:  70%|███████   | 7000/10000 [00:44<00:16, 183.21 examples/s]Generating train split:  75%|███████▌  | 7500/10000 [00:50<00:17, 147.03 examples/s]Generating train split:  85%|████████▌ | 8500/10000 [00:50<00:06, 222.79 examples/s]Generating train split:  95%|█████████▌| 9500/10000 [00:51<00:01, 321.99 examples/s]Generating train split: 100%|██████████| 10000/10000 [00:51<00:00, 388.23 examples/s]Generating train split: 100%|██████████| 10000/10000 [00:55<00:00, 180.08 examples/s]
+Generating test split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating test split:  20%|██        | 1000/5000 [00:00<00:02, 1755.99 examples/s]Generating test split:  40%|████      | 2000/5000 [00:01<00:01, 1916.28 examples/s]Generating test split:  50%|█████     | 2500/5000 [00:01<00:01, 2026.99 examples/s]Generating test split:  70%|███████   | 3500/5000 [00:01<00:00, 2117.05 examples/s]Generating test split:  90%|█████████ | 4500/5000 [00:08<00:01, 327.19 examples/s] Generating test split: 100%|██████████| 5000/5000 [00:08<00:00, 399.70 examples/s]Generating test split: 100%|██████████| 5000/5000 [00:11<00:00, 430.88 examples/s]
+Generating validation split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating validation split:  20%|██        | 1000/5000 [00:00<00:02, 1681.20 examples/s]Generating validation split:  40%|████      | 2000/5000 [00:01<00:01, 1920.03 examples/s]Generating validation split:  50%|█████     | 2500/5000 [00:01<00:01, 2054.40 examples/s]Generating validation split:  70%|███████   | 3500/5000 [00:01<00:00, 2101.76 examples/s]Generating validation split:  90%|█████████ | 4500/5000 [00:07<00:01, 391.36 examples/s] Generating validation split: 100%|██████████| 5000/5000 [00:07<00:00, 474.05 examples/s]Generating validation split: 100%|██████████| 5000/5000 [00:11<00:00, 435.34 examples/s]
+Generating train_orpo split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating train_orpo split:  20%|██        | 1000/5000 [00:00<00:02, 1751.54 examples/s]Generating train_orpo split:  40%|████      | 2000/5000 [00:01<00:01, 1935.77 examples/s]Generating train_orpo split:  50%|█████     | 2500/5000 [00:01<00:01, 2054.64 examples/s]Generating train_orpo split:  70%|███████   | 3500/5000 [00:01<00:00, 2169.29 examples/s]Generating train_orpo split:  90%|█████████ | 4500/5000 [00:11<00:02, 242.81 examples/s] Generating train_orpo split: 100%|██████████| 5000/5000 [00:11<00:00, 300.85 examples/s]Generating train_orpo split: 100%|██████████| 5000/5000 [00:15<00:00, 332.28 examples/s]
+Generating train_sft split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating train_sft split:  20%|██        | 1000/5000 [00:00<00:02, 1752.67 examples/s]Generating train_sft split:  40%|████      | 2000/5000 [00:01<00:01, 1919.37 examples/s]Generating train_sft split:  50%|█████     | 2500/5000 [00:01<00:01, 2048.01 examples/s]Generating train_sft split:  70%|███████   | 3500/5000 [00:01<00:00, 2151.41 examples/s]Generating train_sft split:  90%|█████████ | 4500/5000 [00:11<00:02, 238.70 examples/s] Generating train_sft split: 100%|██████████| 5000/5000 [00:11<00:00, 296.52 examples/s]Generating train_sft split: 100%|██████████| 5000/5000 [00:21<00:00, 296.52 examples/s]Generating train_sft split: 100%|██████████| 5000/5000 [00:32<00:00, 155.75 examples/s]
+Found cached dataset suri (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d)
+2024-06-03 01:59:52 - INFO - datasets.builder - Found cached dataset suri (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d)
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d
+2024-06-03 01:59:52 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d
+Caching indices mapping at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-894b3b8326bd1538.arrow
+2024-06-03 01:59:52 - INFO - datasets.arrow_dataset - Caching indices mapping at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-894b3b8326bd1538.arrow
+2024-06-03 01:59:53 - INFO - __main__ - Training on the following datasets and their proportions: ['train : 10000']
+[INFO|tokenization_utils_base.py:2108] 2024-06-03 01:59:53,482 >> loading file tokenizer.model from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--mistralai--Mistral-7B-Instruct-v0.2/snapshots/41b61a33a2483885c981aa79e0df6b32407ed873/tokenizer.model
+[INFO|tokenization_utils_base.py:2108] 2024-06-03 01:59:53,482 >> loading file tokenizer.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--mistralai--Mistral-7B-Instruct-v0.2/snapshots/41b61a33a2483885c981aa79e0df6b32407ed873/tokenizer.json
+[INFO|tokenization_utils_base.py:2108] 2024-06-03 01:59:53,482 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2108] 2024-06-03 01:59:53,482 >> loading file special_tokens_map.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--mistralai--Mistral-7B-Instruct-v0.2/snapshots/41b61a33a2483885c981aa79e0df6b32407ed873/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2108] 2024-06-03 01:59:53,482 >> loading file tokenizer_config.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--mistralai--Mistral-7B-Instruct-v0.2/snapshots/41b61a33a2483885c981aa79e0df6b32407ed873/tokenizer_config.json
+2024-06-03 01:59:53 - INFO - __main__ - *** Load pretrained model ***
+Process #0 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00000_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #0 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00000_of_00048.arrow
+Process #1 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00001_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #1 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00001_of_00048.arrow
+Process #2 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00002_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #2 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00002_of_00048.arrow
+Process #3 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00003_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #3 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00003_of_00048.arrow
+Process #4 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00004_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #4 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00004_of_00048.arrow
+Process #5 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00005_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #5 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00005_of_00048.arrow
+Process #6 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00006_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #6 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00006_of_00048.arrow
+Process #7 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00007_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #7 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00007_of_00048.arrow
+Process #8 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00008_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #8 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00008_of_00048.arrow
+Process #9 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00009_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #9 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00009_of_00048.arrow
+Process #10 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00010_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #10 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00010_of_00048.arrow
+Process #11 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00011_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #11 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00011_of_00048.arrow
+Process #12 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00012_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #12 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00012_of_00048.arrow
+Process #13 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00013_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #13 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00013_of_00048.arrow
+Process #14 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00014_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #14 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00014_of_00048.arrow
+Process #15 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00015_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #15 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00015_of_00048.arrow
+Process #16 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00016_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #16 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00016_of_00048.arrow
+Process #17 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00017_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #17 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00017_of_00048.arrow
+Process #18 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00018_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #18 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00018_of_00048.arrow
+Process #19 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00019_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #19 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00019_of_00048.arrow
+Process #20 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00020_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #20 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00020_of_00048.arrow
+Process #21 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00021_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #21 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00021_of_00048.arrow
+Process #22 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00022_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #22 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00022_of_00048.arrow
+Process #23 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00023_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #23 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00023_of_00048.arrow
+Process #24 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00024_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #24 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00024_of_00048.arrow
+Process #25 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00025_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #25 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00025_of_00048.arrow
+Process #26 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00026_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #26 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00026_of_00048.arrow
+Process #27 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00027_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #27 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00027_of_00048.arrow
+Process #28 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00028_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #28 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00028_of_00048.arrow
+Process #29 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00029_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #29 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00029_of_00048.arrow
+Process #30 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00030_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #30 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00030_of_00048.arrow
+Process #31 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00031_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #31 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00031_of_00048.arrow
+Process #32 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00032_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #32 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00032_of_00048.arrow
+Process #33 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00033_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #33 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00033_of_00048.arrow
+Process #34 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00034_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #34 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00034_of_00048.arrow
+Process #35 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00035_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #35 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00035_of_00048.arrow
+Process #36 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00036_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #36 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00036_of_00048.arrow
+Process #37 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00037_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #37 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00037_of_00048.arrow
+Process #38 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00038_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #38 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00038_of_00048.arrow
+Process #39 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00039_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #39 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00039_of_00048.arrow
+Process #40 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00040_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #40 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00040_of_00048.arrow
+Process #41 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00041_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #41 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00041_of_00048.arrow
+Process #42 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00042_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #42 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00042_of_00048.arrow
+Process #43 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00043_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #43 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00043_of_00048.arrow
+Process #44 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00044_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #44 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00044_of_00048.arrow
+Process #45 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00045_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #45 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00045_of_00048.arrow
+Process #46 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00046_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #46 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00046_of_00048.arrow
+Process #47 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00047_of_00048.arrow
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Process #47 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00047_of_00048.arrow
+Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Spawning 48 processes
+2024-06-03 01:59:53 - INFO - datasets.arrow_dataset - Spawning 48 processes
+Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Applying chat template (num_proc=48):   0%|          | 1/10000 [00:00<29:30,  5.65 examples/s]Applying chat template (num_proc=48):   0%|          | 20/10000 [00:00<01:18, 126.94 examples/s]Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00000_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00000_of_00048.arrow
+Applying chat template (num_proc=48):   0%|          | 6/10000 [00:00<04:21, 38.27 examples/s]Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00002_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00001_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00002_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00001_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00003_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00003_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00004_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00004_of_00048.arrow
+Applying chat template (num_proc=48):   6%|▋         | 640/10000 [00:00<00:03, 2852.94 examples/s]Applying chat template (num_proc=48):   7%|▋         | 677/10000 [00:00<00:02, 3140.17 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00005_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00005_of_00048.arrow
+Applying chat template (num_proc=48):   1%|          | 53/10000 [00:00<00:30, 321.94 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00006_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00006_of_00048.arrow
+Applying chat template (num_proc=48):   5%|▌         | 520/10000 [00:00<00:03, 2453.07 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00007_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00007_of_00048.arrow
+Applying chat template (num_proc=48):   0%|          | 0/10000 [00:00<?, ? examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00008_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00008_of_00048.arrow
+Applying chat template (num_proc=48):   0%|          | 1/10000 [00:00<32:18,  5.16 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00009_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00009_of_00048.arrow
+Applying chat template (num_proc=48):   1%|          | 60/10000 [00:00<00:29, 334.64 examples/s]Applying chat template (num_proc=48):  17%|█▋        | 1654/10000 [00:00<00:01, 5583.95 examples/s]Applying chat template (num_proc=48):   0%|          | 1/10000 [00:00<29:46,  5.60 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00010_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00010_of_00048.arrow
+Applying chat template (num_proc=48):  18%|█▊        | 1781/10000 [00:00<00:01, 5993.19 examples/s]Applying chat template (num_proc=48):   8%|▊         | 837/10000 [00:00<00:02, 3695.74 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00011_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00011_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00012_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00012_of_00048.arrow
+Applying chat template (num_proc=48):  16%|█▋        | 1648/10000 [00:00<00:01, 5020.63 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00013_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00013_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00014_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00014_of_00048.arrow
+Applying chat template (num_proc=48):  26%|██▌       | 2577/10000 [00:00<00:01, 6683.80 examples/s]Applying chat template (num_proc=48):   2%|▏         | 231/10000 [00:00<00:09, 1001.49 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00015_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00015_of_00048.arrow
+Applying chat template (num_proc=48):   5%|▍         | 454/10000 [00:00<00:05, 1713.88 examples/s]Applying chat template (num_proc=48):  26%|██▋       | 2630/10000 [00:00<00:01, 6713.47 examples/s]Applying chat template (num_proc=48):   5%|▍         | 470/10000 [00:00<00:05, 1653.43 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00016_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00016_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00018_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00018_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00017_of_00048.arrow
+2024-06-03 01:59:54 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00017_of_00048.arrow
+Applying chat template (num_proc=48):   7%|▋         | 678/10000 [00:01<00:19, 478.55 examples/s] Applying chat template (num_proc=48):  24%|██▍       | 2445/10000 [00:01<00:05, 1502.60 examples/s]Applying chat template (num_proc=48):   9%|▉         | 886/10000 [00:01<00:17, 514.65 examples/s]Applying chat template (num_proc=48):   4%|▍         | 419/10000 [00:01<00:48, 195.61 examples/s] Applying chat template (num_proc=48):  10%|█         | 1045/10000 [00:02<00:23, 386.65 examples/s]Applying chat template (num_proc=48):   8%|▊         | 836/10000 [00:02<00:28, 322.13 examples/s] Applying chat template (num_proc=48):   6%|▋         | 627/10000 [00:02<00:32, 284.83 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00023_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00023_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00021_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00021_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00022_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00022_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00027_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00027_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00026_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00026_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00034_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00034_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00024_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00024_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00028_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00028_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00019_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00019_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00025_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00025_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00041_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00041_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00020_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00020_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00032_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00032_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00029_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00029_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00043_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00043_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00039_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00039_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00038_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00038_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00047_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00047_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00033_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00033_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00031_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00031_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00046_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00046_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00042_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00042_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00040_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00040_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00036_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00036_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00044_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00044_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00035_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00035_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00030_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00030_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00037_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00037_of_00048.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00045_of_00048.arrow
+2024-06-03 01:59:56 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___suri/default/0.0.0/84f79185faa823243ade7f464783f672f5c1965d/cache-b9e47cca9d6c1363_00045_of_00048.arrow
+Applying chat template (num_proc=48):  13%|█▎        | 1254/10000 [00:03<00:29, 296.12 examples/s]Applying chat template (num_proc=48):   8%|▊         | 836/10000 [00:03<00:37, 247.18 examples/s]Applying chat template (num_proc=48):   0%|          | 1/10000 [00:03<10:21:07,  3.73s/ examples]Applying chat template (num_proc=48):   1%|▏         | 147/10000 [00:03<03:06, 52.93 examples/s] Applying chat template (num_proc=48):  15%|█▍        | 1463/10000 [00:04<00:29, 285.90 examples/s]Applying chat template (num_proc=48):  10%|█         | 1045/10000 [00:04<00:35, 254.02 examples/s]Applying chat template (num_proc=48):   2%|▏         | 208/10000 [00:04<02:18, 70.50 examples/s]Applying chat template (num_proc=48):  11%|█         | 1122/10000 [00:04<00:36, 241.96 examples/s]Applying chat template (num_proc=48):  13%|█▎        | 1259/10000 [00:04<00:30, 288.66 examples/s]Applying chat template (num_proc=48):  33%|███▎      | 3346/10000 [00:04<00:14, 452.25 examples/s] Applying chat template (num_proc=48):  17%|█▋        | 1687/10000 [00:04<00:27, 296.95 examples/s]Applying chat template (num_proc=48):  15%|█▍        | 1484/10000 [00:04<00:32, 260.11 examples/s]Applying chat template (num_proc=48):  29%|██▉       | 2890/10000 [00:05<00:18, 388.11 examples/s] Applying chat template (num_proc=48):  10%|█         | 1012/10000 [00:04<00:56, 159.29 examples/s]Applying chat template (num_proc=48):  18%|█▊        | 1847/10000 [00:04<00:22, 366.63 examples/s]Applying chat template (num_proc=48):  14%|█▍        | 1426/10000 [00:04<00:22, 373.08 examples/s]Applying chat template (num_proc=48):  18%|█▊        | 1803/10000 [00:04<00:23, 342.77 examples/s]Applying chat template (num_proc=48):  35%|███▍      | 3478/10000 [00:05<00:12, 543.08 examples/s]Applying chat template (num_proc=48):  12%|█▏        | 1180/10000 [00:05<00:43, 204.22 examples/s]Applying chat template (num_proc=48):  25%|██▍       | 2475/10000 [00:05<00:09, 770.49 examples/s]Applying chat template (num_proc=48):  23%|██▎       | 2257/10000 [00:05<00:15, 489.32 examples/s]Applying chat template (num_proc=48):  15%|█▌        | 1501/10000 [00:05<00:23, 358.59 examples/s]Applying chat template (num_proc=48):  39%|███▉      | 3906/10000 [00:05<00:11, 546.59 examples/s]Applying chat template (num_proc=48):  15%|█▍        | 1469/10000 [00:05<00:26, 323.08 examples/s]Applying chat template (num_proc=48):  39%|███▊      | 3872/10000 [00:05<00:08, 681.96 examples/s]Applying chat template (num_proc=48):  30%|███       | 3045/10000 [00:05<00:08, 862.69 examples/s]Applying chat template (num_proc=48):  16%|█▋        | 1634/10000 [00:05<00:18, 461.28 examples/s]Applying chat template (num_proc=48):  69%|██████▉   | 6929/10000 [00:05<00:01, 1643.91 examples/s]Applying chat template (num_proc=48):  44%|████▎     | 4351/10000 [00:05<00:06, 888.69 examples/s]Applying chat template (num_proc=48):  28%|██▊       | 2757/10000 [00:05<00:09, 787.00 examples/s]Applying chat template (num_proc=48):   4%|▍         | 430/10000 [00:05<01:14, 127.67 examples/s]Applying chat template (num_proc=48):  17%|█▋        | 1716/10000 [00:05<00:20, 402.39 examples/s]Applying chat template (num_proc=48):  23%|██▎       | 2260/10000 [00:05<00:07, 1037.92 examples/s]Applying chat template (num_proc=48):  30%|██▉       | 2965/10000 [00:05<00:07, 911.95 examples/s]Applying chat template (num_proc=48):  35%|███▍      | 3465/10000 [00:06<00:09, 712.73 examples/s]Applying chat template (num_proc=48):  19%|█▉        | 1924/10000 [00:06<00:21, 380.74 examples/s]Applying chat template (num_proc=48):   6%|▋         | 638/10000 [00:06<00:55, 169.63 examples/s]Applying chat template (num_proc=48):  32%|███▏      | 3172/10000 [00:06<00:11, 612.89 examples/s]Applying chat template (num_proc=48):  39%|███▉      | 3881/10000 [00:06<00:06, 907.31 examples/s]Applying chat template (num_proc=48):  21%|██▏       | 2132/10000 [00:06<00:16, 479.35 examples/s]Applying chat template (num_proc=48):  25%|██▍       | 2469/10000 [00:06<00:17, 428.50 examples/s] Applying chat template (num_proc=48):   8%|▊         | 846/10000 [00:06<00:47, 192.29 examples/s]Applying chat template (num_proc=48):  34%|███▍      | 3380/10000 [00:07<00:15, 438.71 examples/s]Applying chat template (num_proc=48):  13%|█▎        | 1262/10000 [00:07<00:22, 381.88 examples/s]Applying chat template (num_proc=48):  40%|████      | 4003/10000 [00:07<00:07, 822.52 examples/s]Applying chat template (num_proc=48):  48%|████▊     | 4767/10000 [00:07<00:10, 489.06 examples/s]Applying chat template (num_proc=48):  28%|██▊       | 2756/10000 [00:07<00:12, 557.82 examples/s]Applying chat template (num_proc=48):  27%|██▋       | 2678/10000 [00:07<00:16, 436.04 examples/s]Applying chat template (num_proc=48):  15%|█▍        | 1478/10000 [00:07<00:17, 497.97 examples/s]Applying chat template (num_proc=48):  30%|██▉       | 2968/10000 [00:07<00:10, 644.98 examples/s]Applying chat template (num_proc=48):  43%|████▎     | 4306/10000 [00:07<00:08, 641.13 examples/s]Applying chat template (num_proc=48):  80%|████████  | 8034/10000 [00:07<00:01, 1006.35 examples/s]Applying chat template (num_proc=48):  32%|███▏      | 3197/10000 [00:07<00:09, 711.48 examples/s]Applying chat template (num_proc=48):  46%|████▋     | 4634/10000 [00:07<00:07, 676.98 examples/s]Applying chat template (num_proc=48):  19%|█▉        | 1895/10000 [00:08<00:17, 463.81 examples/s]Applying chat template (num_proc=48):  42%|████▏     | 4221/10000 [00:08<00:11, 502.24 examples/s]Applying chat template (num_proc=48):  34%|███▍      | 3429/10000 [00:08<00:12, 534.85 examples/s]Applying chat template (num_proc=48):  51%|█████     | 5079/10000 [00:08<00:11, 415.33 examples/s]Applying chat template (num_proc=48):  36%|███▋      | 3637/10000 [00:08<00:12, 516.52 examples/s]Applying chat template (num_proc=48):  50%|████▉     | 4961/10000 [00:08<00:09, 534.12 examples/s]Applying chat template (num_proc=48):  31%|███▏      | 3126/10000 [00:08<00:18, 368.59 examples/s]Applying chat template (num_proc=48):  53%|█████▎    | 5311/10000 [00:08<00:10, 436.26 examples/s]Applying chat template (num_proc=48):  27%|██▋       | 2727/10000 [00:08<00:09, 765.43 examples/s]Applying chat template (num_proc=48):  44%|████▍     | 4429/10000 [00:08<00:11, 475.31 examples/s]Applying chat template (num_proc=48):  54%|█████▍    | 5376/10000 [00:09<00:06, 681.27 examples/s]Applying chat template (num_proc=48):  38%|███▊      | 3845/10000 [00:09<00:10, 575.77 examples/s]Applying chat template (num_proc=48):  31%|███▏      | 3141/10000 [00:08<00:07, 896.25 examples/s]Applying chat template (num_proc=48):  55%|█████▌    | 5518/10000 [00:09<00:09, 472.71 examples/s]Applying chat template (num_proc=48):  33%|███▎      | 3333/10000 [00:09<00:16, 408.82 examples/s]Applying chat template (num_proc=48):  47%|████▋     | 4674/10000 [00:09<00:10, 506.99 examples/s]Applying chat template (num_proc=48):  57%|█████▋    | 5734/10000 [00:09<00:07, 552.15 examples/s]Applying chat template (num_proc=48):  60%|█████▉    | 5998/10000 [00:09<00:04, 914.16 examples/s]Applying chat template (num_proc=48):  35%|███▌      | 3542/10000 [00:09<00:14, 440.75 examples/s]Applying chat template (num_proc=48):  51%|█████     | 5089/10000 [00:09<00:07, 645.51 examples/s]Applying chat template (num_proc=48):  53%|█████▎    | 5296/10000 [00:09<00:06, 757.71 examples/s]Applying chat template (num_proc=48):  66%|██████▌   | 6619/10000 [00:09<00:03, 1109.93 examples/s]Applying chat template (num_proc=48):  36%|███▌      | 3557/10000 [00:09<00:08, 746.84 examples/s]Applying chat template (num_proc=48):  68%|██████▊   | 6826/10000 [00:10<00:03, 916.19 examples/s] Applying chat template (num_proc=48):  38%|███▊      | 3765/10000 [00:10<00:08, 744.29 examples/s]Applying chat template (num_proc=48):  38%|███▊      | 3758/10000 [00:10<00:16, 372.28 examples/s]Applying chat template (num_proc=48):  55%|█████▌    | 5503/10000 [00:10<00:07, 598.85 examples/s]Applying chat template (num_proc=48):  40%|███▉      | 3973/10000 [00:10<00:07, 835.65 examples/s]Applying chat template (num_proc=48):  44%|████▍     | 4387/10000 [00:10<00:11, 488.07 examples/s]Applying chat template (num_proc=48):  90%|████████▉ | 8969/10000 [00:10<00:01, 687.97 examples/s] Applying chat template (num_proc=48):  59%|█████▉    | 5948/10000 [00:10<00:10, 390.48 examples/s]Applying chat template (num_proc=48):  46%|████▌     | 4592/10000 [00:10<00:06, 861.94 examples/s]Applying chat template (num_proc=48):  50%|█████     | 5007/10000 [00:10<00:04, 1030.67 examples/s]Applying chat template (num_proc=48):  62%|██████▏   | 6155/10000 [00:10<00:08, 439.94 examples/s]Applying chat template (num_proc=48):  68%|██████▊   | 6776/10000 [00:10<00:03, 846.65 examples/s]Applying chat template (num_proc=48):  57%|█████▋    | 5714/10000 [00:10<00:08, 511.21 examples/s]Applying chat template (num_proc=48):  46%|████▌     | 4598/10000 [00:10<00:11, 452.55 examples/s]Applying chat template (num_proc=48):  42%|████▏     | 4185/10000 [00:10<00:09, 628.89 examples/s]Applying chat template (num_proc=48):  70%|███████   | 7031/10000 [00:11<00:04, 618.75 examples/s]Applying chat template (num_proc=48):  44%|████▍     | 4392/10000 [00:10<00:07, 742.80 examples/s]Applying chat template (num_proc=48):  61%|██████▏   | 6128/10000 [00:11<00:05, 760.78 examples/s]Applying chat template (num_proc=48):  72%|███████▏  | 7239/10000 [00:11<00:04, 679.08 examples/s]Applying chat template (num_proc=48):  46%|████▌     | 4599/10000 [00:11<00:06, 829.15 examples/s]Applying chat template (num_proc=48):  71%|███████   | 7056/10000 [00:11<00:03, 755.54 examples/s]Applying chat template (num_proc=48):  48%|████▊     | 4806/10000 [00:11<00:05, 883.97 examples/s]Applying chat template (num_proc=48):  73%|███████▎  | 7278/10000 [00:11<00:03, 709.55 examples/s]Applying chat template (num_proc=48):  50%|█████     | 5014/10000 [00:11<00:05, 850.56 examples/s]Applying chat template (num_proc=48):  67%|██████▋   | 6653/10000 [00:11<00:04, 803.04 examples/s]Applying chat template (num_proc=48):  75%|███████▌  | 7512/10000 [00:11<00:03, 805.89 examples/s]Applying chat template (num_proc=48):  69%|██████▊   | 6860/10000 [00:11<00:03, 819.38 examples/s]Applying chat template (num_proc=48):  97%|█████████▋| 9665/10000 [00:12<00:00, 617.32 examples/s]Applying chat template (num_proc=48):  55%|█████▍    | 5458/10000 [00:12<00:07, 596.29 examples/s] Applying chat template (num_proc=48):  73%|███████▎  | 7274/10000 [00:12<00:02, 989.47 examples/s]Applying chat template (num_proc=48):  77%|███████▋  | 7720/10000 [00:12<00:03, 708.04 examples/s]Applying chat template (num_proc=48):  52%|█████▏    | 5231/10000 [00:12<00:07, 634.71 examples/s]Applying chat template (num_proc=48):  48%|████▊     | 4818/10000 [00:12<00:17, 298.55 examples/s]Applying chat template (num_proc=48):  56%|█████▋    | 5650/10000 [00:12<00:07, 564.22 examples/s]Applying chat template (num_proc=48):  75%|███████▌  | 7512/10000 [00:12<00:05, 421.43 examples/s]Applying chat template (num_proc=48):  79%|███████▉  | 7929/10000 [00:12<00:03, 679.56 examples/s]Applying chat template (num_proc=48):  54%|█████▍    | 5439/10000 [00:12<00:06, 655.43 examples/s]Applying chat template (num_proc=48):  50%|█████     | 5031/10000 [00:12<00:13, 368.73 examples/s]Applying chat template (num_proc=48):  61%|██████    | 6067/10000 [00:12<00:05, 775.69 examples/s]Applying chat template (num_proc=48):  81%|████████▏ | 8137/10000 [00:13<00:03, 618.47 examples/s]Applying chat template (num_proc=48):  75%|███████▌  | 7516/10000 [00:12<00:03, 639.81 examples/s]Applying chat template (num_proc=48):  57%|█████▋    | 5653/10000 [00:12<00:07, 555.22 examples/s]Applying chat template (num_proc=48):  83%|████████▎ | 8344/10000 [00:13<00:03, 527.94 examples/s]Applying chat template (num_proc=48):  65%|██████▍   | 6481/10000 [00:13<00:03, 991.15 examples/s]Applying chat template (num_proc=48):  63%|██████▎   | 6274/10000 [00:13<00:07, 518.73 examples/s]Applying chat template (num_proc=48):  77%|███████▋  | 7723/10000 [00:13<00:04, 505.97 examples/s]Applying chat template (num_proc=48):  52%|█████▏    | 5238/10000 [00:13<00:16, 295.06 examples/s]Applying chat template (num_proc=48):  67%|██████▋   | 6688/10000 [00:13<00:04, 743.64 examples/s]Applying chat template (num_proc=48):  86%|████████▌ | 8551/10000 [00:13<00:02, 595.65 examples/s]Applying chat template (num_proc=48):  67%|██████▋   | 6688/10000 [00:13<00:03, 955.79 examples/s]Applying chat template (num_proc=48):  67%|██████▋   | 6687/10000 [00:13<00:03, 995.22 examples/s]Applying chat template (num_proc=48):  69%|██████▉   | 6895/10000 [00:13<00:02, 1057.32 examples/s]Applying chat template (num_proc=48):  31%|███▏      | 3142/10000 [00:14<00:01, 6683.80 examples/s]Applying chat template (num_proc=48):  71%|███████   | 7102/10000 [00:14<00:04, 655.62 examples/s]Applying chat template (num_proc=48):  31%|███▏      | 3143/10000 [00:14<00:51, 133.98 examples/s] Applying chat template (num_proc=48):  71%|███████   | 7102/10000 [00:14<00:04, 685.17 examples/s] Applying chat template (num_proc=48):  75%|███████▌  | 7516/10000 [00:14<00:02, 1068.20 examples/s]Applying chat template (num_proc=48):  75%|███████▌  | 7516/10000 [00:14<00:02, 863.55 examples/s]Applying chat template (num_proc=48):  73%|███████▎  | 7309/10000 [00:14<00:03, 785.28 examples/s]Applying chat template (num_proc=48):  77%|███████▋  | 7723/10000 [00:14<00:02, 1129.80 examples/s]Applying chat template (num_proc=48):  79%|███████▉  | 7930/10000 [00:14<00:01, 1132.93 examples/s]Applying chat template (num_proc=48):  83%|████████▎ | 8344/10000 [00:14<00:03, 531.16 examples/s]Applying chat template (num_proc=48):  90%|████████▉ | 8965/10000 [00:14<00:02, 472.14 examples/s]Applying chat template (num_proc=48):  79%|███████▉  | 7930/10000 [00:14<00:02, 1028.58 examples/s]Applying chat template (num_proc=48):  92%|█████████▏| 9172/10000 [00:15<00:01, 576.90 examples/s]Applying chat template (num_proc=48):  86%|████████▌ | 8551/10000 [00:15<00:02, 585.11 examples/s]Applying chat template (num_proc=48):  86%|████████▌ | 8551/10000 [00:15<00:02, 638.85 examples/s]Applying chat template (num_proc=48):  83%|████████▎ | 8344/10000 [00:15<00:01, 1169.05 examples/s]Applying chat template (num_proc=48):  90%|████████▉ | 8965/10000 [00:15<00:01, 788.58 examples/s]Applying chat template (num_proc=48):  92%|█████████▏| 9172/10000 [00:15<00:01, 807.58 examples/s]Applying chat template (num_proc=48):  88%|████████▊ | 8758/10000 [00:15<00:01, 1150.96 examples/s]Applying chat template (num_proc=48):  81%|████████▏ | 8137/10000 [00:15<00:02, 729.56 examples/s] Applying chat template (num_proc=48):  86%|████████▌ | 8551/10000 [00:15<00:01, 958.37 examples/s]Applying chat template (num_proc=48):  81%|████████▏ | 8137/10000 [00:15<00:02, 723.05 examples/s] Applying chat template (num_proc=48):  94%|█████████▍| 9379/10000 [00:15<00:01, 440.79 examples/s]Applying chat template (num_proc=48):  94%|█████████▍| 9379/10000 [00:15<00:00, 1362.67 examples/s]Applying chat template (num_proc=48):  90%|████████▉ | 8965/10000 [00:15<00:00, 1352.51 examples/s]Applying chat template (num_proc=48):  94%|█████████▍| 9379/10000 [00:15<00:00, 654.89 examples/s]Applying chat template (num_proc=48):  96%|█████████▌| 9586/10000 [00:16<00:00, 507.44 examples/s]Applying chat template (num_proc=48):  88%|████████▊ | 8758/10000 [00:16<00:01, 810.87 examples/s]Applying chat template (num_proc=48):  96%|█████████▌| 9586/10000 [00:16<00:00, 722.66 examples/s]Applying chat template (num_proc=48):  98%|█████████▊| 9793/10000 [00:16<00:00, 1296.73 examples/s]Applying chat template (num_proc=48):  94%|█████████▍| 9379/10000 [00:15<00:00, 1329.19 examples/s]Applying chat template (num_proc=48):  96%|█████████▌| 9586/10000 [00:16<00:00, 674.60 examples/s]Applying chat template (num_proc=48):  98%|█████████▊| 9793/10000 [00:16<00:00, 566.99 examples/s]Applying chat template (num_proc=48):  90%|████████▉ | 8965/10000 [00:16<00:01, 887.34 examples/s]Applying chat template (num_proc=48):  98%|█████████▊| 9793/10000 [00:16<00:00, 833.82 examples/s]Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:16<00:00, 1135.40 examples/s]Applying chat template (num_proc=48):  94%|█████████▍| 9379/10000 [00:16<00:00, 1169.94 examples/s]Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:16<00:00, 764.78 examples/s]Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:16<00:00, 1283.96 examples/s]Applying chat template (num_proc=48):  79%|███████▉  | 7930/10000 [00:16<00:11, 185.55 examples/s]Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 578.20 examples/s]
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 576.12 examples/s]
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    eval_dataset = raw_datasets["test"]
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 577.60 examples/s]
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 571.71 examples/s]
+Concatenating 48 shards
+2024-06-03 02:00:11 - INFO - datasets.arrow_dataset - Concatenating 48 shards
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 575.15 examples/s]
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    eval_dataset = raw_datasets["test"]
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 574.00 examples/s] 
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 579.00 examples/s] 
+Applying chat template (num_proc=48): 100%|██████████| 10000/10000 [00:17<00:00, 574.33 examples/s]
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    eval_dataset = raw_datasets["test"]
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    eval_dataset = raw_datasets["test"]
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    eval_dataset = raw_datasets["test"]
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    eval_dataset = raw_datasets["test"]
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+Traceback (most recent call last):
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 238, in <module>
+    main()
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+    main()
+    eval_dataset = raw_datasets["test"]
+  File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 161, in main
+                   ~~~~~~~~~~~~^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+    eval_dataset = raw_datasets["test"]
+     return super().__getitem__(k) 
+                 ~~~~~ ~ ~ ~ ~ ~ ~ ~ ^ ^ ^ ^^^^^^^^^^
+^^^  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/datasets/dataset_dict.py", line 75, in __getitem__
+^^^^^^^^^^^^^^
+KeyError: 'test'
+    return super().__getitem__(k)
+           ^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'test'
+[2024-06-03 02:00:14,066] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 2447181) of binary: /modules/spack/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.4.0/python-3.11.0-5d5wu4shk5euvpumjljr4evlrzmauzb7/bin/python
+Traceback (most recent call last):
+  File "/home/ctpham_umass_edu/.local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/accelerate/commands/accelerate_cli.py", line 46, in main
+    args.func(args)
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/accelerate/commands/launch.py", line 1067, in launch_command
+    deepspeed_launcher(args)
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/accelerate/commands/launch.py", line 771, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ctpham_umass_edu/.local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/run_sft.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 2447182)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 2447183)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 2447184)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[4]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 2447185)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[5]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 5 (local_rank: 5)
+  exitcode  : 1 (pid: 2447186)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[6]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 2447187)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[7]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 2447188)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-06-03_02:00:14
+  host      : gpu021.unity.rc.umass.edu
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2447181)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
