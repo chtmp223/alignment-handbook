@@ -41,6 +41,17 @@ from alignment import (
     get_tokenizer,
 )
 from trl import SFTTrainer, setup_chat_format
+import torch.distributed as dist
+from torch.utils.data import Subset
+
+# --- Debugging NCCL timeout ---
+import os
+os.environ['NCCL_DEBUG'] = 'INFO'               # debugging info
+os.environ['NCCL_P2P_DISABLE'] = '1'            # disable P2P
+os.environ['TORCH_DISTRIBUTED_DEBUG'] = 'INFO'  # debugging info
+os.environ['NCCL_P2P_LEVEL'] = "NVL"
+os.environ['NCCL_IB_GID_INDEX'] = "3"
+# --------------------------------
 
 
 logger = logging.getLogger(__name__)
@@ -85,6 +96,10 @@ def main():
     ###############
     # Load datasets
     ###############
+    if dist.is_initialized():  # Ensure distributed initialization
+        dist.barrier()
+
+    torch.cuda.empty_cache()
     raw_datasets = get_datasets(
         data_args,
         splits=data_args.dataset_splits,
@@ -95,7 +110,7 @@ def main():
         f"Training on the following datasets and their proportions: {[split + ' : ' + str(dset.num_rows) for split, dset in raw_datasets.items()]}"
     )
     column_names = list(raw_datasets["train"].features)
-
+    
     ################
     # Load tokenizer
     ################
@@ -142,16 +157,6 @@ def main():
         desc="Applying chat template",
     )
 
-    ##########################
-    # Decontaminate benchmarks
-    ##########################
-    num_raw_train_samples = len(raw_datasets["train"])
-    raw_datasets = raw_datasets.filter(decontaminate_humaneval, batched=True, batch_size=10_000, num_proc=1)
-    num_filtered_train_samples = num_raw_train_samples - len(raw_datasets["train"])
-    logger.info(
-        f"Decontaminated {num_filtered_train_samples} ({num_filtered_train_samples/num_raw_train_samples * 100:.2f}%) samples from the training set."
-    )
-
     train_dataset = raw_datasets["train"]
     eval_dataset = raw_datasets["test"]
 
@@ -162,6 +167,8 @@ def main():
     ########################
     # Initialize the Trainer
     ########################
+    torch.cuda.empty_cache()
+    logger.info("Initializing SFTTrainer")
     trainer = SFTTrainer(
         model=model,
         model_init_kwargs=model_kwargs,
@@ -195,6 +202,9 @@ def main():
     ##################################
     # Save model and create model card
     ##################################
+    if dist.is_initialized():
+        dist.barrier()  # Ensure processes are synchronized before saving
+
     logger.info("*** Save model ***")
     trainer.save_model(training_args.output_dir)
     logger.info(f"Model saved to {training_args.output_dir}")

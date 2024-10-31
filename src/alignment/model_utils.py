@@ -25,6 +25,8 @@ from huggingface_hub import list_repo_files
 from huggingface_hub.utils._errors import RepositoryNotFoundError
 from huggingface_hub.utils._validators import HFValidationError
 from peft import LoraConfig, PeftConfig
+from datetime import timedelta
+from accelerate import InitProcessGroupKwargs
 
 from .configs import DataArguments, DPOConfig, ModelArguments, SFTConfig
 from .data import DEFAULT_CHAT_TEMPLATE
@@ -32,7 +34,7 @@ from .data import DEFAULT_CHAT_TEMPLATE
 
 def get_current_device() -> int:
     """Get the current device. For GPU we return the local process index to enable multiple GPU training."""
-    return Accelerator().local_process_index if torch.cuda.is_available() else "cpu"
+    return Accelerator(kwargs_handlers=[InitProcessGroupKwargs(timeout=timedelta(seconds=5400))]).local_process_index if torch.cuda.is_available() else "cpu"
 
 
 def get_kbit_device_map() -> Dict[str, int] | None:

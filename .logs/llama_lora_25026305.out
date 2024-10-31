@@ -1,0 +1,270 @@
+Removing miniconda version 22.11.1-1
+Loading miniconda version 22.11.1-1
+loading libiconv version 1.16
+loading xz version 5.2.5
+loading zlib version 1.2.11
+loading libxml2 version 2.9.12
+loading cuda version 11.8.0
+[2024-09-22 17:45:27,439] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+INFO:root:Using nproc_per_node=4.
+W0922 17:45:30.265000 139781903140672 torch/distributed/run.py:779] 
+W0922 17:45:30.265000 139781903140672 torch/distributed/run.py:779] *****************************************
+W0922 17:45:30.265000 139781903140672 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0922 17:45:30.265000 139781903140672 torch/distributed/run.py:779] *****************************************
+[2024-09-22 17:45:44,181] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-09-22 17:45:44,187] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-09-22 17:45:44,190] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-09-22 17:45:44,362] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /project/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /project/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /project/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /project/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+4
+True
+4
+True
+[2024-09-22 17:45:48,888] [INFO] [comm.py:652:init_distributed] cdb=None
+4
+True
+[2024-09-22 17:45:48,888] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+4
+True
+[2024-09-22 17:45:48,918] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-09-22 17:45:48,919] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-09-22 17:45:48,926] [INFO] [comm.py:652:init_distributed] cdb=None
+2024-09-22 17:45:49 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-09-22 17:45:49 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='meta-llama/Meta-Llama-3.1-8B-Instruct', model_revision='main', model_code_revision=None, torch_dtype='bfloat16', tokenizer_name_or_path=None, trust_remote_code=False, attn_implementation='flash_attention_2', use_peft=True, lora_r=64, lora_alpha=64, lora_dropout=0.05, lora_target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj'], lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False, bnb_4bit_quant_storage='uint8')
+2024-09-22 17:45:49 - INFO - __main__ - Data parameters DataArguments(chat_template="<|begin_of_text|>{% for message in messages %}{% if message['role'] == 'system' %}<|start_header_id|>system<|end_header_id|>{{ message['content'] }}<|eot_id|>{% elif message['role'] == 'user' %}<|start_header_id|>user<|end_header_id|>{{ message['content'] }}<|eot_id|>{% elif message['role'] == 'assistant' %}<|start_header_id|>assistant<|end_header_id|>{{ message['content'] }}<|eot_id|>{% endif %}{% if loop.last and add_generation_prompt %}<|start_header_id|>assistant<|end_header_id|>{% endif %}{% endfor %}<|end_of_text|>", dataset_mixer={'chtmp223/BookClaim-Gutenberg': 1.0}, text_column='text', dataset_splits=['train', 'test'], dataset_configs=None, preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)
+2024-09-22 17:45:49 - INFO - __main__ - Training/evaluation parameters SFTConfig(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+chars_per_token=<CHARS_PER_TOKEN>,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+dataset_batch_size=1000,
+dataset_kwargs=None,
+dataset_num_proc=None,
+dataset_text_field=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_packing=None,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs={'use_reentrant': False},
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=chtmp223/test,
+hub_model_revision=main,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=1e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/scratch/workspace/ctpham_umass_edu-ft/runs/Sep22_17-45-48_gpu019,
+logging_first_step=True,
+logging_nan_inf_filter=True,
+logging_steps=5,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_seq_length=131071,
+max_steps=-1,
+metric_for_best_model=None,
+model_init_kwargs=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_of_sequences=1024,
+num_train_epochs=1,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=/scratch/workspace/ctpham_umass_edu-ft,
+overwrite_output_dir=True,
+packing=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+prediction_loss_only=False,
+push_to_hub=True,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/scratch/workspace/ctpham_umass_edu-ft,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=100,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+2024-09-22 17:45:49 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-09-22 17:45:49 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-09-22 17:45:49 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1 distributed training: True, 16-bits training: False
+Overwrite dataset info from restored data version if exists.
+2024-09-22 17:45:54 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 17:45:54 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+2024-09-22 17:45:54 - INFO - datasets.builder - Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 17:45:54 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Overwrite dataset info from restored data version if exists.
+2024-09-22 17:45:55 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 17:45:55 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+2024-09-22 17:45:55 - INFO - datasets.builder - Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 17:45:55 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-def2939d9200ae79.arrow
+2024-09-22 17:45:55 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-def2939d9200ae79.arrow
+Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-130b7311a441872d.arrow
+2024-09-22 17:45:55 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-130b7311a441872d.arrow
+2024-09-22 17:45:55 - INFO - __main__ - Training on the following datasets and their proportions: ['train : 16994', 'test : 2130']
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 17:45:55,704 >> loading file tokenizer.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/5206a32e0bd3067aef1ce90f5528ade7d866253f/tokenizer.json
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 17:45:55,704 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 17:45:55,704 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 17:45:55,705 >> loading file special_tokens_map.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/5206a32e0bd3067aef1ce90f5528ade7d866253f/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 17:45:55,705 >> loading file tokenizer_config.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/5206a32e0bd3067aef1ce90f5528ade7d866253f/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2479] 2024-09-22 17:45:57,186 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+2024-09-22 17:45:57 - INFO - __main__ - *** Load pretrained model ***
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 237, in <module>
+[rank0]:     main()
+[rank0]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 137, in main
+[rank0]:     model.to('cuda')
+[rank0]: AttributeError: 'str' object has no attribute 'to'
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 237, in <module>
+[rank3]:     main()
+[rank3]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 137, in main
+[rank3]:     model.to('cuda')
+[rank3]: AttributeError: 'str' object has no attribute 'to'
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 237, in <module>
+[rank1]:     main()
+[rank1]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 137, in main
+[rank1]:     model.to('cuda')
+[rank1]: AttributeError: 'str' object has no attribute 'to'
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 237, in <module>
+[rank2]:     main()
+[rank2]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 137, in main
+[rank2]:     model.to('cuda')
+[rank2]: AttributeError: 'str' object has no attribute 'to'
+W0922 17:45:59.984000 139781903140672 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 2724710 closing signal SIGTERM
+W0922 17:45:59.985000 139781903140672 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 2724711 closing signal SIGTERM
+W0922 17:45:59.985000 139781903140672 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 2724712 closing signal SIGTERM
+E0922 17:46:00.508000 139781903140672 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 2724709) of binary: /home/ctpham_umass_edu/.conda/envs/handbook/bin/python3
+Warning: The cache directory for DeepSpeed Triton autotune, /project/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Traceback (most recent call last):
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 48, in main
+    args.func(args)
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1159, in launch_command
+    deepspeed_launcher(args)
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/launch.py", line 852, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/run_sft.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-09-22_17:45:59
+  host      : gpu019.unity.rc.umass.edu
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2724709)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

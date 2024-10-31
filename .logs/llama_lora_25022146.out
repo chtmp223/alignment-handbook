@@ -1,0 +1,357 @@
+Removing miniconda version 22.11.1-1
+Loading miniconda version 22.11.1-1
+loading libiconv version 1.16
+loading xz version 5.2.5
+loading zlib version 1.2.11
+loading libxml2 version 2.9.12
+loading cuda version 11.8.0
+[2024-09-22 00:46:30,247] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+INFO:root:Using nproc_per_node=4.
+W0922 00:46:33.692000 139919210530624 torch/distributed/run.py:779] 
+W0922 00:46:33.692000 139919210530624 torch/distributed/run.py:779] *****************************************
+W0922 00:46:33.692000 139919210530624 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0922 00:46:33.692000 139919210530624 torch/distributed/run.py:779] *****************************************
+[2024-09-22 00:46:48,977] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-09-22 00:46:49,003] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-09-22 00:46:49,101] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-09-22 00:46:49,214] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Warning: The cache directory for DeepSpeed Triton autotune, /work/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /work/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /work/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /work/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2024-09-22 00:46:53,992] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-09-22 00:46:54,015] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-09-22 00:46:54,046] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-09-22 00:46:54,046] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-09-22 00:46:54,058] [INFO] [comm.py:652:init_distributed] cdb=None
+2024-09-22 00:46:54 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-09-22 00:46:54 - INFO - __main__ - Model parameters ModelArguments(base_model_revision=None, model_name_or_path='meta-llama/Meta-Llama-3.1-8B-Instruct', model_revision='main', model_code_revision=None, torch_dtype='bfloat16', tokenizer_name_or_path=None, trust_remote_code=False, attn_implementation='flash_attention_2', use_peft=True, lora_r=128, lora_alpha=256, lora_dropout=0.05, lora_target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj'], lora_modules_to_save=None, load_in_8bit=False, load_in_4bit=False, bnb_4bit_quant_type='nf4', use_bnb_nested_quant=False, bnb_4bit_quant_storage='uint8')
+2024-09-22 00:46:54 - INFO - __main__ - Data parameters DataArguments(chat_template="<|begin_of_text|> {% for message in messages %} {% if message['role'] == 'system' %} <|start_header_id|>system<|end_header_id|> {{ message['content'] }}<|eot_id|> {% elif message['role'] == 'user' %} <|start_header_id|>user<|end_header_id|> {{ message['content'] }}<|eot_id|> {% elif message['role'] == 'assistant' %} <|start_header_id|>assistant<|end_header_id|> {{ message['content'] }}<|eot_id|> {% endif %} {% if loop.last and add_generation_prompt %} <|start_header_id|>assistant<|end_header_id|> {% endif %} {% endfor %} <|end_of_text|> ", dataset_mixer={'chtmp223/BookClaim-Gutenberg': 1.0}, text_column='text', dataset_splits=['train', 'test'], dataset_configs=None, preprocessing_num_workers=12, truncation_side=None, auto_insert_empty_system_msg=True)
+2024-09-22 00:46:54 - INFO - __main__ - Training/evaluation parameters SFTConfig(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+chars_per_token=<CHARS_PER_TOKEN>,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+dataset_batch_size=1000,
+dataset_kwargs=None,
+dataset_num_proc=None,
+dataset_text_field=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_packing=None,
+eval_steps=None,
+eval_strategy=no,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=2,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs={'use_reentrant': False},
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=chtmp223/test,
+hub_model_revision=main,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=1e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=info,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/scratch/workspace/ctpham_umass_edu-ft/runs/Sep22_00-46-54_gpu016,
+logging_first_step=True,
+logging_nan_inf_filter=True,
+logging_steps=5,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_seq_length=131071,
+max_steps=-1,
+metric_for_best_model=None,
+model_init_kwargs=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_of_sequences=1024,
+num_train_epochs=1,
+optim=adamw_torch,
+optim_args=None,
+optim_target_modules=None,
+output_dir=/scratch/workspace/ctpham_umass_edu-ft,
+overwrite_output_dir=True,
+packing=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=2,
+prediction_loss_only=False,
+push_to_hub=True,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=/scratch/workspace/ctpham_umass_edu-ft,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=100,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.1,
+warmup_steps=0,
+weight_decay=0.0,
+)
+2024-09-22 00:46:55 - WARNING - __main__ - Process rank: 1, device: cuda:1, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-09-22 00:46:55 - WARNING - __main__ - Process rank: 3, device: cuda:3, n_gpu: 1 distributed training: True, 16-bits training: False
+2024-09-22 00:46:55 - WARNING - __main__ - Process rank: 2, device: cuda:2, n_gpu: 1 distributed training: True, 16-bits training: False
+Overwrite dataset info from restored data version if exists.
+2024-09-22 00:46:57 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 00:46:57 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+2024-09-22 00:46:57 - INFO - datasets.builder - Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 00:46:57 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Overwrite dataset info from restored data version if exists.
+2024-09-22 00:46:58 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 00:46:58 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+2024-09-22 00:46:58 - INFO - datasets.builder - Found cached dataset book_claim-gutenberg (/project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b)
+Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+2024-09-22 00:46:58 - INFO - datasets.info - Loading Dataset info from /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b
+Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-def2939d9200ae79.arrow
+2024-09-22 00:46:58 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-def2939d9200ae79.arrow
+Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-130b7311a441872d.arrow
+2024-09-22 00:46:58 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-130b7311a441872d.arrow
+2024-09-22 00:46:58 - INFO - __main__ - Training on the following datasets and their proportions: ['train : 16994', 'test : 2130']
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 00:46:58,714 >> loading file tokenizer.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/5206a32e0bd3067aef1ce90f5528ade7d866253f/tokenizer.json
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 00:46:58,714 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 00:46:58,714 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 00:46:58,714 >> loading file special_tokens_map.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/5206a32e0bd3067aef1ce90f5528ade7d866253f/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2215] 2024-09-22 00:46:58,714 >> loading file tokenizer_config.json from cache at /project/pi_miyyer_umass_edu/ctpham/.cache/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/5206a32e0bd3067aef1ce90f5528ade7d866253f/tokenizer_config.json
+Applying chat template (num_proc=12):   0%|          | 0/16994 [00:00<?, ? examples/s][INFO|tokenization_utils_base.py:2479] 2024-09-22 00:47:00,205 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+2024-09-22 00:47:00 - INFO - __main__ - *** Load pretrained model ***
+Applying chat template (num_proc=12):   0%|          | 0/16994 [00:00<?, ? examples/s]Process #0 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00000_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #0 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00000_of_00012.arrow
+Process #1 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00001_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #1 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00001_of_00012.arrow
+Process #2 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00002_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #2 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00002_of_00012.arrow
+Process #3 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00003_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #3 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00003_of_00012.arrow
+Process #4 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00004_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #4 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00004_of_00012.arrow
+Process #5 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00005_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #5 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00005_of_00012.arrow
+Process #6 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00006_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #6 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00006_of_00012.arrow
+Process #7 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00007_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #7 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00007_of_00012.arrow
+Process #8 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00008_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #8 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00008_of_00012.arrow
+Process #9 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00009_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #9 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00009_of_00012.arrow
+Process #10 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00010_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #10 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00010_of_00012.arrow
+Process #11 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00011_of_00012.arrow
+2024-09-22 00:47:00 - INFO - datasets.arrow_dataset - Process #11 will write at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00011_of_00012.arrow
+Applying chat template (num_proc=12):   0%|          | 0/16994 [00:00<?, ? examples/s]Spawning 12 processes
+2024-09-22 00:47:01 - INFO - datasets.arrow_dataset - Spawning 12 processes
+Applying chat template (num_proc=12):   0%|          | 0/16994 [00:00<?, ? examples/s]Applying chat template (num_proc=12):   0%|          | 1/16994 [00:15<71:36:16, 15.17s/ examples]Applying chat template (num_proc=12):   1%|▏         | 213/16994 [00:15<14:08, 19.78 examples/s] Applying chat template (num_proc=12):   2%|▏         | 373/16994 [00:25<15:47, 17.54 examples/s]Applying chat template (num_proc=12):   3%|▎         | 586/16994 [00:25<07:55, 34.48 examples/s]Applying chat template (num_proc=12):   0%|          | 1/16994 [00:25<120:45:51, 25.58s/ examples]Applying chat template (num_proc=12):   1%|          | 174/16994 [00:25<29:03,  9.65 examples/s]  Applying chat template (num_proc=12):   2%|▏         | 348/16994 [00:26<12:08, 22.84 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00001_of_00012.arrow
+2024-09-22 00:47:31 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00001_of_00012.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00000_of_00012.arrow
+2024-09-22 00:47:31 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00000_of_00012.arrow
+Applying chat template (num_proc=12):   0%|          | 1/16994 [00:31<148:54:35, 31.55s/ examples]Applying chat template (num_proc=12):   1%|          | 92/16994 [00:31<1:08:08,  4.13 examples/s] Applying chat template (num_proc=12):   1%|▏         | 213/16994 [00:31<23:36, 11.85 examples/s] Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00002_of_00012.arrow
+2024-09-22 00:47:35 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00002_of_00012.arrow
+Applying chat template (num_proc=12):   4%|▎         | 631/16994 [00:41<07:54, 34.48 examples/s]Applying chat template (num_proc=12):   4%|▎         | 636/16994 [00:41<19:33, 13.94 examples/s]Applying chat template (num_proc=12):   4%|▍         | 685/16994 [00:42<16:20, 16.63 examples/s]Applying chat template (num_proc=12):   5%|▌         | 852/16994 [00:42<09:00, 29.87 examples/s]Applying chat template (num_proc=12):   6%|▌         | 1047/16994 [00:42<05:09, 51.54 examples/s]Applying chat template (num_proc=12):   7%|▋         | 1219/16994 [00:42<03:22, 77.76 examples/s]Applying chat template (num_proc=12):   8%|▊         | 1402/16994 [00:42<02:15, 115.38 examples/s]Applying chat template (num_proc=12):   9%|▉         | 1590/16994 [00:42<01:33, 164.76 examples/s]Applying chat template (num_proc=12):   0%|          | 1/16994 [00:40<192:14:40, 40.73s/ examples]Applying chat template (num_proc=12):  10%|█         | 1737/16994 [00:42<01:12, 210.88 examples/s]Applying chat template (num_proc=12):   0%|          | 36/16994 [00:40<3:46:30,  1.25 examples/s] Applying chat template (num_proc=12):   2%|▏         | 357/16994 [00:42<12:08, 22.84 examples/s]Applying chat template (num_proc=12):   2%|▏         | 359/16994 [00:42<32:29,  8.53 examples/s]Applying chat template (num_proc=12):  11%|█         | 1882/16994 [00:43<00:56, 266.54 examples/s]Applying chat template (num_proc=12):   1%|▏         | 232/16994 [00:40<25:31, 10.95 examples/s] Applying chat template (num_proc=12):   4%|▍         | 721/16994 [00:42<09:28, 28.61 examples/s]Applying chat template (num_proc=12):   6%|▌         | 936/16994 [00:42<05:55, 45.13 examples/s]Applying chat template (num_proc=12):   7%|▋         | 1121/16994 [00:42<04:04, 64.96 examples/s]Applying chat template (num_proc=12):   8%|▊         | 1293/16994 [00:43<02:53, 90.51 examples/s]Applying chat template (num_proc=12):   9%|▊         | 1459/16994 [00:43<02:05, 123.85 examples/s]Applying chat template (num_proc=12):  10%|▉         | 1615/16994 [00:43<01:39, 155.17 examples/s]Applying chat template (num_proc=12):  10%|█         | 1736/16994 [00:44<01:58, 128.98 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00003_of_00012.arrow
+2024-09-22 00:47:49 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00003_of_00012.arrow
+Applying chat template (num_proc=12):   1%|▏         | 235/16994 [00:51<23:34, 11.85 examples/s]Applying chat template (num_proc=12):   1%|▏         | 237/16994 [00:54<1:01:41,  4.53 examples/s]Applying chat template (num_proc=12):   1%|▏         | 239/16994 [00:56<1:05:18,  4.28 examples/s]Applying chat template (num_proc=12):   2%|▏         | 298/16994 [00:56<37:04,  7.51 examples/s]  Applying chat template (num_proc=12):   5%|▌         | 901/16994 [00:56<04:54, 54.72 examples/s]Applying chat template (num_proc=12):   7%|▋         | 1149/16994 [00:57<03:20, 79.00 examples/s]Applying chat template (num_proc=12):   1%|▏         | 245/16994 [01:01<25:30, 10.95 examples/s]Applying chat template (num_proc=12):   1%|▏         | 246/16994 [01:01<57:59,  4.81 examples/s]Applying chat template (num_proc=12):   2%|▏         | 330/16994 [01:02<33:55,  8.19 examples/s]Applying chat template (num_proc=12):   3%|▎         | 588/16994 [01:02<11:54, 22.98 examples/s]Applying chat template (num_proc=12):   4%|▍         | 731/16994 [01:02<07:57, 34.09 examples/s]Applying chat template (num_proc=12):  11%|█         | 1801/16994 [01:04<01:57, 128.98 examples/s]Applying chat template (num_proc=12):  11%|█         | 1804/16994 [01:04<13:29, 18.75 examples/s] Applying chat template (num_proc=12):  12%|█▏        | 1976/16994 [01:04<08:31, 29.38 examples/s]Applying chat template (num_proc=12):  11%|█         | 1908/16994 [01:05<00:56, 266.54 examples/s]Applying chat template (num_proc=12):  11%|█         | 1909/16994 [01:05<15:23, 16.33 examples/s] Applying chat template (num_proc=12):  12%|█▏        | 2088/16994 [01:05<06:26, 38.55 examples/s]Applying chat template (num_proc=12):  13%|█▎        | 2206/16994 [01:05<04:41, 52.55 examples/s]Applying chat template (num_proc=12):  13%|█▎        | 2131/16994 [01:05<08:28, 29.20 examples/s]Applying chat template (num_proc=12):  14%|█▎        | 2302/16994 [01:05<03:36, 67.78 examples/s]Applying chat template (num_proc=12):  14%|█▎        | 2316/16994 [01:06<05:32, 44.21 examples/s]Applying chat template (num_proc=12):  14%|█▍        | 2428/16994 [01:06<04:17, 56.61 examples/s]Applying chat template (num_proc=12):  14%|█▍        | 2391/16994 [01:05<02:52, 84.67 examples/s]Applying chat template (num_proc=12):  15%|█▍        | 2533/16994 [01:06<03:20, 72.08 examples/s]Applying chat template (num_proc=12):  14%|█▍        | 2464/16994 [01:05<02:20, 103.43 examples/s]Applying chat template (num_proc=12):  16%|█▌        | 2635/16994 [01:06<02:34, 93.00 examples/s]Applying chat template (num_proc=12):  15%|█▍        | 2529/16994 [01:06<01:57, 123.17 examples/s]Applying chat template (num_proc=12):  16%|█▌        | 2724/16994 [01:06<02:02, 116.02 examples/s]Applying chat template (num_proc=12):  16%|█▋        | 2804/16994 [01:06<01:40, 141.48 examples/s]Applying chat template (num_proc=12):  16%|█▌        | 2691/16994 [01:06<01:14, 191.42 examples/s]Applying chat template (num_proc=12):  17%|█▋        | 2875/16994 [01:06<01:22, 171.94 examples/s]Applying chat template (num_proc=12):  16%|█▋        | 2778/16994 [01:06<01:01, 232.36 examples/s]Applying chat template (num_proc=12):  17%|█▋        | 2944/16994 [01:06<01:08, 203.96 examples/s]Applying chat template (num_proc=12):  18%|█▊        | 3062/16994 [01:07<00:49, 283.49 examples/s]Applying chat template (num_proc=12):  19%|█▊        | 3168/16994 [01:07<00:37, 369.32 examples/s]Applying chat template (num_proc=12):  19%|█▉        | 3282/16994 [01:07<00:29, 471.60 examples/s]Applying chat template (num_proc=12):   5%|▍         | 847/16994 [01:05<07:34, 35.52 examples/s]Applying chat template (num_proc=12):  20%|██        | 3422/16994 [01:07<00:21, 623.25 examples/s]Applying chat template (num_proc=12):  21%|██        | 3527/16994 [01:07<00:26, 517.30 examples/s]Applying chat template (num_proc=12):   5%|▌         | 923/16994 [01:05<06:21, 42.14 examples/s]Applying chat template (num_proc=12):  21%|██        | 3529/16994 [01:08<04:19, 51.81 examples/s] 
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 233, in <module>
+[rank1]:     main()
+[rank1]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 133, in main
+[rank1]:     raw_datasets = raw_datasets.map(
+[rank1]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 866, in map
+[rank1]:     {
+[rank1]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 867, in <dictcomp>
+[rank1]:     k: dataset.map(
+[rank1]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 560, in wrapper
+[rank1]:     out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+[rank1]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3127, in map
+[rank1]:     for rank, done, content in iflatmap_unordered(
+[rank1]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/utils/py_utils.py", line 711, in iflatmap_unordered
+[rank1]:     raise RuntimeError(
+[rank1]: RuntimeError: One of the subprocesses has abruptly died during map operation.To debug the error, disable multiprocessing.
+Applying chat template (num_proc=12):   8%|▊         | 1331/16994 [01:11<07:39, 34.11 examples/s]Applying chat template (num_proc=12):   8%|▊         | 1331/16994 [01:11<07:39, 34.11 examples/s]Applying chat template (num_proc=12):   8%|▊         | 1333/16994 [01:11<07:41, 33.95 examples/s]Applying chat template (num_proc=12):  10%|▉         | 1626/16994 [01:11<04:07, 62.10 examples/s]Applying chat template (num_proc=12):  11%|█         | 1817/16994 [01:11<02:55, 86.54 examples/s]Applying chat template (num_proc=12):  12%|█▏        | 1956/16994 [01:11<02:15, 111.18 examples/s]Applying chat template (num_proc=12):  12%|█▏        | 2091/16994 [01:11<01:45, 140.96 examples/s]Applying chat template (num_proc=12):  13%|█▎        | 2225/16994 [01:12<01:21, 181.68 examples/s]Applying chat template (num_proc=12):  14%|█▍        | 2367/16994 [01:12<01:01, 239.59 examples/s]Applying chat template (num_proc=12):  15%|█▍        | 2484/16994 [01:13<01:23, 173.26 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00004_of_00012.arrow
+2024-09-22 00:48:16 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00004_of_00012.arrow
+Applying chat template (num_proc=12):  17%|█▋        | 2819/16994 [01:19<01:01, 232.36 examples/s]Applying chat template (num_proc=12):  17%|█▋        | 2821/16994 [01:19<11:36, 20.35 examples/s] Applying chat template (num_proc=12):  17%|█▋        | 2846/16994 [01:19<10:24, 22.64 examples/s]Applying chat template (num_proc=12):  18%|█▊        | 3116/16994 [01:19<03:48, 60.70 examples/s]Applying chat template (num_proc=12):  19%|█▉        | 3242/16994 [01:19<02:43, 84.17 examples/s]Applying chat template (num_proc=12):  20%|█▉        | 3352/16994 [01:19<02:02, 111.37 examples/s]Applying chat template (num_proc=12):  20%|██        | 3457/16994 [01:19<01:32, 145.89 examples/s]Applying chat template (num_proc=12):  21%|██        | 3602/16994 [01:20<01:06, 201.95 examples/s]Applying chat template (num_proc=12):   6%|▌         | 973/16994 [01:19<17:39, 15.13 examples/s]Applying chat template (num_proc=12):   6%|▌         | 973/16994 [01:19<17:39, 15.13 examples/s]Applying chat template (num_proc=12):   6%|▌         | 980/16994 [01:20<17:12, 15.51 examples/s]Applying chat template (num_proc=12):   7%|▋         | 1158/16994 [01:20<08:01, 32.88 examples/s]Applying chat template (num_proc=12):   8%|▊         | 1385/16994 [01:20<04:03, 64.03 examples/s]Applying chat template (num_proc=12):   9%|▉         | 1543/16994 [01:20<02:45, 93.09 examples/s]Applying chat template (num_proc=12):  10%|█         | 1709/16994 [01:20<01:54, 133.81 examples/s]Applying chat template (num_proc=12):  11%|█         | 1875/16994 [01:20<01:22, 182.70 examples/s]Applying chat template (num_proc=12):  12%|█▏        | 1987/16994 [01:20<01:06, 226.70 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00005_of_00012.arrow
+2024-09-22 00:48:34 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00005_of_00012.arrow
+Applying chat template (num_proc=12):  15%|█▍        | 2512/16994 [01:33<01:23, 173.26 examples/s]Applying chat template (num_proc=12):  15%|█▍        | 2512/16994 [01:33<08:58, 26.88 examples/s] 
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 233, in <module>
+[rank2]:     main()
+[rank2]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 133, in main
+[rank2]:     raw_datasets = raw_datasets.map(
+[rank2]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 866, in map
+[rank2]:     {
+[rank2]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 867, in <dictcomp>
+[rank2]:     k: dataset.map(
+[rank2]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 560, in wrapper
+[rank2]:     out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+[rank2]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3127, in map
+[rank2]:     for rank, done, content in iflatmap_unordered(
+[rank2]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/utils/py_utils.py", line 711, in iflatmap_unordered
+[rank2]:     raise RuntimeError(
+[rank2]: RuntimeError: One of the subprocesses has abruptly died during map operation.To debug the error, disable multiprocessing.
+Applying chat template (num_proc=12):  12%|█▏        | 2006/16994 [01:38<01:06, 226.70 examples/s]Applying chat template (num_proc=12):  12%|█▏        | 2007/16994 [01:38<13:14, 18.86 examples/s] Applying chat template (num_proc=12):  12%|█▏        | 2016/16994 [01:38<12:52, 19.40 examples/s]Applying chat template (num_proc=12):  13%|█▎        | 2274/16994 [01:38<05:13, 46.90 examples/s]Applying chat template (num_proc=12):  15%|█▍        | 2465/16994 [01:38<03:13, 74.96 examples/s]Applying chat template (num_proc=12):  15%|█▌        | 2610/16994 [01:38<02:18, 103.53 examples/s]Applying chat template (num_proc=12):  16%|█▌        | 2748/16994 [01:38<01:42, 139.65 examples/s]Applying chat template (num_proc=12):  21%|██▏       | 3649/16994 [01:40<01:06, 201.95 examples/s]Applying chat template (num_proc=12):  21%|██▏       | 3650/16994 [01:40<14:14, 15.61 examples/s] Applying chat template (num_proc=12):  22%|██▏       | 3663/16994 [01:40<13:35, 16.34 examples/s]Applying chat template (num_proc=12):  23%|██▎       | 3893/16994 [01:40<05:50, 37.33 examples/s]Applying chat template (num_proc=12):  24%|██▎       | 4008/16994 [01:40<04:11, 51.66 examples/s]Applying chat template (num_proc=12):  25%|██▍       | 4198/16994 [01:40<02:30, 85.21 examples/s]Applying chat template (num_proc=12):  17%|█▋        | 2905/16994 [01:47<05:31, 42.45 examples/s] Applying chat template (num_proc=12):  19%|█▉        | 3193/16994 [01:47<02:59, 76.79 examples/s]Applying chat template (num_proc=12):  20%|██        | 3415/16994 [01:48<02:00, 113.07 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00006_of_00012.arrow
+2024-09-22 00:48:50 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00006_of_00012.arrow
+Applying chat template (num_proc=12):  25%|██▌       | 4333/16994 [01:51<06:20, 33.23 examples/s]Applying chat template (num_proc=12):  26%|██▋       | 4491/16994 [01:51<04:15, 48.91 examples/s]Applying chat template (num_proc=12):  27%|██▋       | 4633/16994 [01:51<03:01, 68.27 examples/s]Applying chat template (num_proc=12):  29%|██▊       | 4860/16994 [01:51<01:48, 112.14 examples/s]Applying chat template (num_proc=12):  30%|██▉       | 5022/16994 [01:51<01:18, 151.74 examples/s]Applying chat template (num_proc=12):  30%|███       | 5168/16994 [01:51<00:59, 199.64 examples/s]Applying chat template (num_proc=12):  31%|███       | 5309/16994 [01:51<00:45, 256.30 examples/s]Applying chat template (num_proc=12):  32%|███▏      | 5479/16994 [01:51<00:32, 351.66 examples/s]Applying chat template (num_proc=12):  33%|███▎      | 5620/16994 [01:52<00:27, 417.45 examples/s]Applying chat template (num_proc=12):  34%|███▍      | 5746/16994 [01:52<00:22, 493.35 examples/s]Applying chat template (num_proc=12):  35%|███▍      | 5876/16994 [01:52<00:18, 595.69 examples/s]Applying chat template (num_proc=12):  35%|███▌      | 5997/16994 [01:52<00:17, 615.96 examples/s]Applying chat template (num_proc=12):  36%|███▌      | 6103/16994 [01:52<00:16, 670.03 examples/s]Applying chat template (num_proc=12):  37%|███▋      | 6204/16994 [01:54<00:57, 186.32 examples/s]Applying chat template (num_proc=12):  37%|███▋      | 6217/16994 [01:54<03:18, 54.18 examples/s] 
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00007_of_00012.arrow
+2024-09-22 00:48:57 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00007_of_00012.arrow
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 233, in <module>
+[rank3]:     main()
+[rank3]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 133, in main
+[rank3]:     raw_datasets = raw_datasets.map(
+[rank3]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 866, in map
+[rank3]:     {
+[rank3]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 867, in <dictcomp>
+[rank3]:     k: dataset.map(
+[rank3]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 560, in wrapper
+[rank3]:     out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+[rank3]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3127, in map
+[rank3]:     for rank, done, content in iflatmap_unordered(
+[rank3]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/utils/py_utils.py", line 711, in iflatmap_unordered
+[rank3]:     raise RuntimeError(
+[rank3]: RuntimeError: One of the subprocesses has abruptly died during map operation.To debug the error, disable multiprocessing.
+Applying chat template (num_proc=12):  21%|██        | 3567/16994 [01:58<01:58, 113.07 examples/s]Applying chat template (num_proc=12):  21%|██        | 3568/16994 [01:58<05:19, 41.99 examples/s] Applying chat template (num_proc=12):  21%|██        | 3570/16994 [01:58<05:21, 41.75 examples/s]Applying chat template (num_proc=12):  26%|██▌       | 4345/16994 [01:58<01:26, 145.89 examples/s]Applying chat template (num_proc=12):  28%|██▊       | 4789/16994 [01:59<00:53, 226.22 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00008_of_00012.arrow
+2024-09-22 00:49:01 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00008_of_00012.arrow
+Applying chat template (num_proc=12):  30%|███       | 5118/16994 [02:00<00:50, 235.29 examples/s]Applying chat template (num_proc=12):  34%|███▎      | 5710/16994 [02:00<00:28, 393.18 examples/s]Applying chat template (num_proc=12):  36%|███▌      | 6043/16994 [02:02<00:34, 317.33 examples/s]Applying chat template (num_proc=12):  37%|███▋      | 6280/16994 [02:03<00:36, 294.19 examples/s]Applying chat template (num_proc=12):  38%|███▊      | 6455/16994 [02:04<00:39, 269.11 examples/s]Applying chat template (num_proc=12):  39%|███▊      | 6583/16994 [02:04<00:43, 241.59 examples/s]Applying chat template (num_proc=12):  39%|███▉      | 6677/16994 [02:06<00:58, 175.48 examples/s]Applying chat template (num_proc=12):  40%|███▉      | 6745/16994 [02:07<01:07, 151.56 examples/s]Applying chat template (num_proc=12):  40%|███▉      | 6795/16994 [02:07<01:08, 149.08 examples/s]Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00009_of_00012.arrow
+Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00010_of_00012.arrow
+2024-09-22 00:49:09 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00009_of_00012.arrow
+2024-09-22 00:49:09 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00010_of_00012.arrow
+Applying chat template (num_proc=12):  40%|████      | 6835/16994 [02:07<01:09, 147.00 examples/s]Applying chat template (num_proc=12):  40%|████      | 6869/16994 [02:08<01:10, 143.91 examples/s]Applying chat template (num_proc=12):  41%|████      | 6898/16994 [02:08<01:08, 147.93 examples/s]Applying chat template (num_proc=12):  41%|████      | 6923/16994 [02:08<01:10, 142.47 examples/s]Applying chat template (num_proc=12):  41%|████      | 6944/16994 [02:08<01:15, 133.20 examples/s]Applying chat template (num_proc=12):  41%|████      | 6963/16994 [02:09<01:42, 97.71 examples/s] Applying chat template (num_proc=12):  41%|████      | 6976/16994 [02:09<01:51, 89.83 examples/s]Applying chat template (num_proc=12):  41%|████      | 6988/16994 [02:09<01:48, 91.93 examples/s]Applying chat template (num_proc=12):  41%|████      | 6999/16994 [02:09<01:51, 89.90 examples/s]Applying chat template (num_proc=12):  41%|████      | 7010/16994 [02:09<02:00, 82.74 examples/s]Applying chat template (num_proc=12):  41%|████▏     | 7024/16994 [02:09<01:52, 88.39 examples/s]Applying chat template (num_proc=12):  41%|████▏     | 7034/16994 [02:10<01:52, 88.87 examples/s]Applying chat template (num_proc=12):  41%|████▏     | 7048/16994 [02:10<01:42, 97.27 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7061/16994 [02:10<01:39, 99.56 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7076/16994 [02:10<01:29, 110.55 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7088/16994 [02:10<01:36, 102.75 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7116/16994 [02:10<01:11, 138.50 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7135/16994 [02:10<01:06, 148.34 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7152/16994 [02:10<01:06, 148.69 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7169/16994 [02:10<01:06, 146.93 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7188/16994 [02:11<01:04, 152.37 examples/s]Applying chat template (num_proc=12):  42%|████▏     | 7206/16994 [02:11<01:01, 158.45 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7224/16994 [02:11<01:02, 156.46 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7241/16994 [02:11<01:19, 122.48 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7262/16994 [02:11<01:15, 128.56 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7276/16994 [02:11<01:16, 126.58 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7292/16994 [02:11<01:15, 129.32 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7307/16994 [02:12<01:23, 116.13 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7323/16994 [02:12<01:25, 112.92 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7337/16994 [02:12<01:21, 118.77 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7355/16994 [02:12<01:14, 130.15 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7373/16994 [02:12<01:12, 133.06 examples/s]Applying chat template (num_proc=12):  43%|████▎     | 7391/16994 [02:12<01:10, 135.87 examples/s]Applying chat template (num_proc=12):  44%|████▎     | 7406/16994 [02:12<01:14, 127.85 examples/s]Applying chat template (num_proc=12):  44%|████▎     | 7421/16994 [02:12<01:14, 128.17 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7439/16994 [02:13<01:08, 140.39 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7454/16994 [02:13<01:16, 124.25 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7467/16994 [02:13<01:21, 117.37 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7482/16994 [02:13<01:21, 116.45 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7496/16994 [02:13<01:28, 107.87 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7509/16994 [02:13<01:29, 105.64 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7522/16994 [02:13<01:26, 109.26 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7535/16994 [02:13<01:22, 114.15 examples/s]Applying chat template (num_proc=12):  44%|████▍     | 7548/16994 [02:14<01:22, 114.89 examples/s]Applying chat template (num_proc=12):  45%|████▍     | 7566/16994 [02:14<01:14, 125.71 examples/s]Applying chat template (num_proc=12):  45%|████▍     | 7591/16994 [02:14<01:00, 154.58 examples/s]Applying chat template (num_proc=12):  45%|████▍     | 7608/16994 [02:14<01:04, 145.06 examples/s]Applying chat template (num_proc=12):  45%|████▍     | 7625/16994 [02:14<01:03, 147.71 examples/s]Applying chat template (num_proc=12):  45%|████▍     | 7640/16994 [02:14<01:09, 134.82 examples/s]Applying chat template (num_proc=12):  45%|████▌     | 7654/16994 [02:14<01:13, 126.38 examples/s]Applying chat template (num_proc=12):  45%|████▌     | 7667/16994 [02:14<01:15, 124.36 examples/s]Applying chat template (num_proc=12):  45%|████▌     | 7680/16994 [02:15<01:26, 108.29 examples/s]Applying chat template (num_proc=12):  45%|████▌     | 7705/16994 [02:15<01:12, 127.26 examples/s]Applying chat template (num_proc=12):  45%|████▌     | 7719/16994 [02:15<01:13, 126.62 examples/s]Applying chat template (num_proc=12):  45%|████▌     | 7732/16994 [02:15<01:29, 103.30 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7745/16994 [02:15<01:28, 104.99 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7756/16994 [02:15<01:33, 99.03 examples/s] Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00011_of_00012.arrow
+2024-09-22 00:49:17 - INFO - datasets.arrow_dataset - Caching processed dataset at /project/pi_miyyer_umass_edu/ctpham/.cache/datasets/chtmp223___book_claim-gutenberg/default/0.0.0/3e60c8dc070931858f94278cf3254c075b2bf66b/cache-fcd4a9d1c954845f_00011_of_00012.arrow
+Applying chat template (num_proc=12):  46%|████▌     | 7771/16994 [02:15<01:27, 105.11 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7790/16994 [02:16<01:15, 122.20 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7804/16994 [02:16<01:12, 126.49 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7818/16994 [02:16<01:25, 107.70 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7837/16994 [02:16<01:18, 116.59 examples/s]Applying chat template (num_proc=12):  46%|████▌     | 7859/16994 [02:16<01:06, 136.45 examples/s]Applying chat template (num_proc=12):  46%|████▋     | 7886/16994 [02:16<00:54, 166.26 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 7905/16994 [02:16<01:08, 132.09 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 7922/16994 [02:16<01:08, 133.29 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 7945/16994 [02:17<01:03, 142.84 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 7961/16994 [02:17<01:08, 131.52 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 7975/16994 [02:17<01:12, 124.92 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 7990/16994 [02:17<01:10, 128.52 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 8004/16994 [02:17<01:09, 130.06 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 8021/16994 [02:17<01:04, 139.41 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 8038/16994 [02:17<01:04, 139.91 examples/s]Applying chat template (num_proc=12):  47%|████▋     | 8056/16994 [02:17<01:00, 148.49 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8078/16994 [02:18<00:55, 159.89 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8095/16994 [02:18<00:59, 150.02 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8114/16994 [02:18<00:55, 158.73 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8131/16994 [02:18<00:55, 158.68 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8148/16994 [02:18<00:56, 156.62 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8164/16994 [02:18<01:12, 121.80 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8179/16994 [02:18<01:20, 109.97 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8196/16994 [02:19<01:13, 119.32 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8210/16994 [02:19<01:22, 105.90 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8224/16994 [02:19<01:21, 107.03 examples/s]Applying chat template (num_proc=12):  48%|████▊     | 8239/16994 [02:19<01:20, 108.36 examples/s]Applying chat template (num_proc=12):  49%|████▊     | 8252/16994 [02:19<01:19, 109.73 examples/s]Applying chat template (num_proc=12):  49%|████▊     | 8265/16994 [02:19<01:28, 98.87 examples/s] Applying chat template (num_proc=12):  49%|████▊     | 8277/16994 [02:19<01:45, 82.52 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8290/16994 [02:20<01:34, 91.74 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8307/16994 [02:20<01:21, 106.67 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8322/16994 [02:20<01:17, 111.77 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8340/16994 [02:20<01:10, 122.13 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8358/16994 [02:20<01:03, 135.20 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8374/16994 [02:20<01:05, 131.89 examples/s]Applying chat template (num_proc=12):  49%|████▉     | 8393/16994 [02:20<00:59, 145.34 examples/s]Applying chat template (num_proc=12):  50%|████▉     | 8422/16994 [02:20<00:46, 184.02 examples/s]Applying chat template (num_proc=12):  50%|████▉     | 8442/16994 [02:21<00:57, 149.92 examples/s]Applying chat template (num_proc=12):  50%|████▉     | 8461/16994 [02:21<00:59, 142.32 examples/s]Applying chat template (num_proc=12):  50%|████▉     | 8481/16994 [02:21<00:54, 155.66 examples/s]Applying chat template (num_proc=12):  50%|█████     | 8499/16994 [02:21<00:58, 146.24 examples/s]Applying chat template (num_proc=12):  50%|█████     | 8515/16994 [02:21<01:00, 140.01 examples/s]Applying chat template (num_proc=12):  50%|█████     | 8535/16994 [02:21<00:55, 153.75 examples/s]Applying chat template (num_proc=12):  50%|█████     | 8552/16994 [02:21<01:00, 138.84 examples/s]Applying chat template (num_proc=12):  50%|█████     | 8567/16994 [02:21<01:10, 118.71 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8587/16994 [02:22<01:03, 132.97 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8604/16994 [02:22<01:14, 112.20 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8618/16994 [02:22<01:16, 110.16 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8631/16994 [02:22<01:13, 114.52 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8644/16994 [02:22<01:11, 116.39 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8660/16994 [02:22<01:05, 126.29 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8675/16994 [02:22<01:04, 129.80 examples/s]Applying chat template (num_proc=12):  51%|█████     | 8697/16994 [02:22<00:54, 152.90 examples/s]Applying chat template (num_proc=12):  51%|█████▏    | 8713/16994 [02:23<00:56, 147.15 examples/s]Applying chat template (num_proc=12):  51%|█████▏    | 8730/16994 [02:23<00:57, 143.00 examples/s]Applying chat template (num_proc=12):  51%|█████▏    | 8747/16994 [02:23<00:56, 146.50 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8770/16994 [02:23<00:49, 165.69 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8789/16994 [02:23<00:52, 154.84 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8807/16994 [02:23<00:52, 155.41 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8825/16994 [02:23<00:55, 148.47 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8843/16994 [02:23<00:52, 155.53 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8859/16994 [02:24<00:59, 135.64 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8885/16994 [02:24<00:53, 151.04 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8901/16994 [02:24<00:57, 140.76 examples/s]Applying chat template (num_proc=12):  52%|█████▏    | 8916/16994 [02:24<00:56, 142.94 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 8933/16994 [02:24<01:03, 126.17 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 8949/16994 [02:24<01:04, 125.53 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 8963/16994 [02:24<01:02, 128.17 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 8983/16994 [02:24<00:57, 138.51 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 8998/16994 [02:25<00:57, 140.09 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 9019/16994 [02:25<00:51, 156.17 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 9042/16994 [02:25<00:46, 171.39 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 9063/16994 [02:25<00:56, 139.79 examples/s]Applying chat template (num_proc=12):  53%|█████▎    | 9081/16994 [02:25<01:03, 125.43 examples/s]Applying chat template (num_proc=12):  54%|█████▎    | 9106/16994 [02:25<00:54, 145.64 examples/s]Applying chat template (num_proc=12):  54%|█████▎    | 9128/16994 [02:25<00:52, 150.72 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9148/16994 [02:26<00:48, 161.56 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9167/16994 [02:26<01:05, 119.53 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9184/16994 [02:26<01:09, 112.23 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9198/16994 [02:26<01:15, 103.44 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9211/16994 [02:26<01:22, 93.95 examples/s] Applying chat template (num_proc=12):  54%|█████▍    | 9222/16994 [02:27<01:37, 79.47 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9235/16994 [02:27<01:38, 78.44 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9244/16994 [02:27<01:36, 79.91 examples/s]Applying chat template (num_proc=12):  54%|█████▍    | 9260/16994 [02:27<01:25, 90.58 examples/s]Applying chat template (num_proc=12):  55%|█████▍    | 9271/16994 [02:27<01:26, 89.31 examples/s]Applying chat template (num_proc=12):  55%|█████▍    | 9283/16994 [02:27<01:23, 92.43 examples/s]Applying chat template (num_proc=12):  55%|█████▍    | 9304/16994 [02:27<01:04, 119.37 examples/s]Applying chat template (num_proc=12):  55%|█████▍    | 9321/16994 [02:27<00:59, 128.09 examples/s]Applying chat template (num_proc=12):  55%|█████▍    | 9339/16994 [02:28<00:55, 139.15 examples/s]Applying chat template (num_proc=12):  55%|█████▌    | 9361/16994 [02:28<00:47, 160.30 examples/s]Applying chat template (num_proc=12):  55%|█████▌    | 9380/16994 [02:28<00:56, 134.61 examples/s]Applying chat template (num_proc=12):  55%|█████▌    | 9398/16994 [02:28<00:54, 139.99 examples/s]Applying chat template (num_proc=12):  55%|█████▌    | 9414/16994 [02:28<00:54, 138.64 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9432/16994 [02:28<00:50, 148.68 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9449/16994 [02:28<00:54, 137.80 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9464/16994 [02:28<00:56, 132.36 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9489/16994 [02:29<00:46, 160.88 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9506/16994 [02:29<00:47, 158.64 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9523/16994 [02:29<00:51, 145.61 examples/s]Applying chat template (num_proc=12):  56%|█████▌    | 9539/16994 [02:29<01:49, 68.22 examples/s] Applying chat template (num_proc=12):  56%|█████▌    | 9551/16994 [02:30<03:11, 38.82 examples/s]Applying chat template (num_proc=12):  56%|█████▋    | 9564/16994 [02:30<02:37, 47.23 examples/s]Applying chat template (num_proc=12):  56%|█████▋    | 9579/16994 [02:30<02:04, 59.37 examples/s]Applying chat template (num_proc=12):  56%|█████▋    | 9579/16994 [02:31<01:56, 63.42 examples/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 233, in <module>
+[rank0]:     main()
+[rank0]:   File "/work/pi_miyyer_umass_edu/ctpham/alignment-handbook/scripts/run_sft.py", line 133, in main
+[rank0]:     raw_datasets = raw_datasets.map(
+[rank0]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 866, in map
+[rank0]:     {
+[rank0]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/dataset_dict.py", line 867, in <dictcomp>
+[rank0]:     k: dataset.map(
+[rank0]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 560, in wrapper
+[rank0]:     out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+[rank0]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3127, in map
+[rank0]:     for rank, done, content in iflatmap_unordered(
+[rank0]:   File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/datasets/utils/py_utils.py", line 711, in iflatmap_unordered
+[rank0]:     raise RuntimeError(
+[rank0]: RuntimeError: One of the subprocesses has abruptly died during map operation.To debug the error, disable multiprocessing.
+W0922 00:49:39.255000 139919210530624 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 3605840 closing signal SIGTERM
+W0922 00:49:39.277000 139919210530624 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 3605841 closing signal SIGTERM
+W0922 00:49:39.278000 139919210530624 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 3605842 closing signal SIGTERM
+E0922 00:49:39.691000 139919210530624 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 3605839) of binary: /home/ctpham_umass_edu/.conda/envs/handbook/bin/python3
+Warning: The cache directory for DeepSpeed Triton autotune, /work/pi_miyyer_umass_edu/ctpham/.cache, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Traceback (most recent call last):
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 48, in main
+    args.func(args)
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1159, in launch_command
+    deepspeed_launcher(args)
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/accelerate/commands/launch.py", line 852, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/ctpham_umass_edu/.conda/envs/handbook/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/run_sft.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-09-22_00:49:39
+  host      : gpu016.unity.rc.umass.edu
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3605839)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+slurmstepd-gpu016: error: Detected 4 oom_kill events in StepId=25022146.batch. Some of the step tasks have been OOM Killed.
